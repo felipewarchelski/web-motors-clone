@@ -38,13 +38,27 @@
     </section>
     <section class="main">
         <div class="navbar-left">
-            <div class="title-nav">
-                <a href="">Carros</a>
-                <a href="">Motos</a>
+            <div class="navbar-content">
+                <div class="title-nav">
+                    <a href="">Carros</a>
+                    <a href="">Motos</a>
+                </div>
+            </div>
+            <div class="navbar-container">
+                
             </div>
         </div>
         <div class="content">
-            <div class="header-advertisement"></div>
+            <div class="div-header-advertisement">
+                <div class="filter-box">
+                    <a href=""><img src="imgs/filter.png" alt="" width="20px"></a>
+                    <a href="" class="local">Brasil</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" name="searchbar" id="" placeholder="Digite marca ou modelo do carro">
+                    <img src="imgs/search.png" alt="" width="20px" class="search-icon">
+                </div>
+            </div>
             <div class="advertisement"></div>
         </div>
     </section>
