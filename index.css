@@ -8,8 +8,9 @@
 
 body {
     font-family: Poppins, sans-serif;
-    height: 2000px;
 }
+
+/* COMEÇO HEADER */
 
 .header {
     position: fixed;
@@ -69,7 +70,26 @@ body {
     margin: 5px;
 }
 
-/* WEBKIT */
+/* FIM HEADER */
+
+.main {
+    display: flex;
+}
+
+.navbar-left {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    margin-top: 64px;
+    display: flex;
+    width: 300px;
+    position: relative;
+    border: 1px solid black;
+}
+
+
+
+/* COMEÇO WEBKIT */
 
 /* Scroll-bar */
 ::-webkit-scrollbar {
@@ -80,3 +100,5 @@ body {
     background-color: #b5b5b5;
     border-radius: 20px;
 }
+
+/* FIM WEBKIT */

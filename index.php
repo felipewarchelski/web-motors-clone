@@ -36,6 +36,18 @@
             </a>
         </div>
     </section>
+    <section class="main">
+        <div class="navbar-left">
+            <div class="title-nav">
+                <a href="">Carros</a>
+                <a href="">Motos</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header-advertisement"></div>
+            <div class="advertisement"></div>
+        </div>
+    </section>
 </body>
 
 </html>
