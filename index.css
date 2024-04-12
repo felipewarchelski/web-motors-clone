@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    height: 2000px;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-bottom: 1px solid rgb(229 231 235);
+}
+
+.logo img {
+    width: 145px;
+}
+
+.buttons-header {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.buttons-header a {
+    text-decoration: none;
+    color: #2e2d37;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 22px 15px;
+}
+
+.buttons-header a:hover {
+    border-bottom: 1px solid red;
+}
+
+.login-header {
+    display: flex;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 1rem;
+    height: 100%;
+    align-items: center;
+}
+
+.login-header a {
+    padding-inline: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2e2d37;
+}
+
+.login-header a:hover {
+    color: #f3123c;
+}
+
+.login-header svg {
+    margin: 5px;
+}
+
+/* WEBKIT */
+
+/* Scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 20px;
+}
