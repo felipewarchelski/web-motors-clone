@@ -63,10 +63,6 @@ body {
     color: #2e2d37;
 }
 
-.login-header a:hover {
-    color: #f3123c;
-}
-
 .login-header svg {
     margin: 5px;
 }
@@ -86,7 +82,7 @@ body {
     position: fixed;
     margin-top: 64px;
     display: flex;
-    width: 22%;
+    width: 25%;
     position: relative;
 }
 
@@ -100,11 +96,24 @@ body {
 .title-nav {
     display: flex;
     height: 100%;
+    width: 100%;
     align-items: center;
+    justify-content: space-around;
 }
 
 .title-nav a {
-    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.motos-title {
+    color: #aeaeba;
+}
+
+.carros-title {
+    color: #000;
+    border-bottom: 3px solid red;
 }
 
 .navbar-container {

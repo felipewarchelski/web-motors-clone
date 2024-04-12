@@ -40,12 +40,12 @@
         <div class="navbar-left">
             <div class="navbar-content">
                 <div class="title-nav">
-                    <a href="">Carros</a>
-                    <a href="">Motos</a>
+                    <a href="" class="carros-title">Carros</a>
+                    <a href="" class="motos-title">Motos</a>
                 </div>
             </div>
             <div class="navbar-container">
-                
+
             </div>
         </div>
         <div class="content">
