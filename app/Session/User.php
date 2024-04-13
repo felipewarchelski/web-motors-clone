@@ -21,7 +21,7 @@ class User{
         self::init();
 
         $_SESSION['user_google'] = [
-            'name' => $name,
+            'given_name' => $name,
             'email' => $email,
             'picture' => $picture
         ];
