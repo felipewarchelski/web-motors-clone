@@ -38,9 +38,9 @@
             <div class="sub-box-login">
                 <div class="left-box-socials">
                     <h2>Entre com suas redes sociais</h2>
-                    <form action="#" method="post">
-                        <input type="submit" value="Botao Google">
-                    </form>
+                    <button class="facebook"><img src="../imgs/facebook.svg" alt="">Entrar com Facebook</button>
+                    <button class="google"><img src="../imgs/google.svg" alt="">Entrar com Google</button>
+                    <button class="apple"><img src="../imgs/apple.svg" alt="">Entrar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>
                 <div class="right-box-info">
