@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="redirect-sign-up">
-                <h3>Não tem uma conta? <a href="">Crie a sua</a></h3>
+                <h3>Não tem uma conta? <a href="cadastro.php">Crie a sua</a></h3>
                 <p>Ao prosseguir você está ciente e concorda em receber comunicações da Webmotors.</p>
             </div>
         </div>
