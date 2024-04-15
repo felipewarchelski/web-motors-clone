@@ -87,7 +87,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    width: 350px;
+    width: 250px;
     height: 100vh;
     left: 0px;
 }
@@ -120,7 +120,7 @@ body {
 
 .main-content {
     height: 100vh;
-    margin-left: 350px;
+    margin-left: 250px;
     background-color: #2e2d37;
 }
 
