@@ -23,6 +23,8 @@ body {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     border-bottom: 1px solid rgb(229 231 235);
+    z-index: 3;
+    background-color: white;
 }
 
 .logo {
@@ -74,101 +76,95 @@ body {
 /* FIM HEADER */
 
 .main {
+    padding-top: 64px;
     display: flex;
     justify-content: center;
+    width: 100%;
     height: 100vh;
 }
 
 .navbar-left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     position: fixed;
-    margin-top: 64px;
-    display: flex;
-    width: 22%;
-    position: relative;
-}
-
-.navbar-content {
-    display: flex;
-    justify-content: center;
-    height: 69.1px;
-    width: 100%;
+    width: 350px;
+    height: 100vh;
+    left: 0px;
 }
 
 .title-nav {
     display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
+    height: 64px;
 }
 
 .title-nav a {
     text-decoration: none;
     font-weight: 600;
-    padding: 8px;
-}
-
-.motos-title {
-    color: #aeaeba;
+    padding: 8px 6px;
 }
 
 .carros-title {
-    color: #000;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid #f3123c;
+    color: #2e2e37;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: center;
-    height: 64px;
+.motos-title {
+    color: #94949e;
+}
+
+.nav-content {
     width: 100%;
-    height: 100%;
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
-.content {
-    display: flex;
-    justify-content: center;
+.main-content {
+    height: 100vh;
+    margin-left: 350px;
+    background-color: #2e2d37;
+}
+
+.div-header-content {
     position: fixed;
-    margin-top: 64px;
-    display: flex;
-    width: 100%;
-    height: 64px;
-    position: relative;
-}
-
-.div-header-advertisement {
     display: flex;
     align-items: center;
-    width: 100%;
+    height: 64px;
     justify-content: space-between;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    z-index: 5;
+    width: 82%;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
-.filter-box .search-bar {
-    width: 100%;
-}
-
-.filter-box a {
-    margin: 5px;
+.left-header a {
+    margin-left: 10px;
     text-decoration: none;
-    color: #000;
-}
-
-.local {
-    border: 1px solid black;
+    color: #2e2d37;
     border-radius: 8px;
-    padding: 0px 10px;
+    border: 1px solid #2e2d37;
+    padding: 1px 8px;
 }
 
-.search-bar input {
+.left-header img:hover {
+    cursor: pointer;
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+}
+
+.right-header p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #686976;
+}
+
+.right-header input {
     width: 400px;
-    padding: 10px 20px 10px 50px;
+    padding: 10px 20px 10px 40px;
     border: 2px solid #ecedf2;
     border-radius: 8px;
     font-size: 14px;
@@ -176,14 +172,92 @@ body {
     box-sizing: border-box;
 }
 
-.search-bar input:focus {
+.right-header input:focus {
     outline: 0px;
+}
+
+.mid-line-header-content {
+    background: rgb(0, 0, 0);
+    width: 1px;
+    height: auto;
+    position: absolute;
+    top: 75px;
+    right: 0px;
 }
 
 .search-icon {
     position: absolute;
-    top: 35%;
-    right: 390px;
+    top: 23px;
+    right: 555px;
+}
+
+.view-list {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.content {
+    margin-top: 64px;
+    padding: 15px 30px;
+    overflow-y: scroll;
+    -webkit-box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    background-color: #f3f5f8;
+}
+
+.content h3 {
+    font-size: 10px;
+    color: #8b8c99;
+    margin-bottom: 20px;
+}
+
+.content n {
+    font-weight: 600;
+    color: #8b8c99;
+}
+
+.content h4 {
+    font-weight: 600;
+}
+
+.content h6 {
+    color: #686976;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-cards {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px 12px 10px 0px;
+}
+
+.card img {
+    aspect-ratio: 14/9;
+    object-fit: cover;
+}
+
+.card a {
+    display: flex;
+    width: 100%;
+    padding: 14px 16px;
+    margin: 16px 0px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: rgb(46, 45, 55);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
 }
 
 

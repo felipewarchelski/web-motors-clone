@@ -24,10 +24,7 @@
         </div>
         <div class="login-header">
             <a href="login.php" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                </svg>
+                <img src="imgs/user.png" alt="" width="24px">
                 <?php
                 require __DIR__ . '/vendor/autoload.php';
 
@@ -52,28 +49,115 @@
     </section>
     <section class="main">
         <div class="navbar-left">
-            <div class="navbar-content">
-                <div class="title-nav">
-                    <a href="" class="carros-title">Carros</a>
-                    <a href="" class="motos-title">Motos</a>
-                </div>
+            <div class="title-nav">
+                <a href="" class="carros-title">Carros</a>
+                <a href="" class="motos-title">Motos</a>
             </div>
-            <div class="navbar-container">
-
+            <div class="nav-content">
+                <!-- COLOCAR AS DEPENDENCIAS DO BD EM DIVS E FORMS -->
             </div>
         </div>
-        <div class="content">
-            <div class="div-header-advertisement">
-                <div class="filter-box">
-                    <a href=""><img src="imgs/filter.png" alt="" width="20px"></a>
-                    <a href="" class="local">Brasil</a>
+        <div class="main-content">
+            <div class="div-header-content">
+                <div class="left-header">
+                    <img src="imgs/filter.png" alt="" width="20px">
+                    <a href="">Brasil</a>
                 </div>
-                <div class="search-bar">
-                    <input type="text" name="searchbar" id="" placeholder="Digite marca ou modelo do carro">
-                    <img src="imgs/search.png" alt="" width="20px" class="search-icon">
+                <div class="right-header">
+                    <input type="text" name="procura" id="" placeholder="Digite marca ou modelo do carro">
+                    <img src="imgs/search.png" alt="" width="18px" class="search-icon">
+                    <img src="imgs/view-list.png" alt="" width="20px" class="view-list">
+                    <img src="imgs/up-and-down-arrow.png" alt="" width="22px">
+                    <p>MAIS RELEVANTES</p>
                 </div>
             </div>
-            <div class="advertisement"></div>
+            <div class="content">
+                <h3>Home > <n>Carros</n></h3>
+                <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
+                <h6>352.377 carros encontrados</h6>
+                <div class="main-cards">
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 14.8rem;">
+                        <img src="imgs/uno.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Fiat Uno</h5>
+                            <p class="card-text">Escada em cima</p>
+                            <h2>R$ 5.270</h2>
+                            <h3>2004/2005</h3>
+                            <a href="#" class="btn btn-primary">Ver parcelas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </body>
