@@ -25,19 +25,7 @@
         <div class="login-header">
             <a href="login.php" type="button">
                 <img src="imgs/user.png" alt="" width="24px">
-                <?php
-                require __DIR__ . '/vendor/autoload.php';
-
-                use \App\Session\User as SessionUser;
-
-                $info = SessionUser::getInfo();
-
-                if (SessionUser::isLogged()) {
-                    echo "<a href='perfil.php'>" . $info['given_name'] . "</a>";
-                } else {
-                    echo "Entrar";
-                }
-                ?>
+                Entrar
             </a>
             <a href="">
                 <img src="imgs/coracao.png" alt="" width="20px">
