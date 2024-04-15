@@ -2,7 +2,21 @@
 require '../vendor/autoload.php';
 use \App\Session\UserGoogle as SessionUserGoogle;
 use \App\Session\UserWebMotors as SessionUserWebMotors;
+use \App\Includes\PesquisarVeiculos as PesquisarVeiculos;
 
+
+if(isset($_REQUEST['search_button'])) {   
+    if($_REQUEST['searchbar'] != '' ){
+        $searchbar = $_REQUEST['searchbar'];
+
+        include '../app/includes/pesquisar_veiculos.php';
+
+        PesquisarVeiculos::getSearch($searchbar);
+   } else {
+        header("Location: {$_SERVER['PHP_SELF']}");
+        exit(); 
+   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,6 +27,7 @@ use \App\Session\UserWebMotors as SessionUserWebMotors;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>Web Motors</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>
@@ -82,18 +97,17 @@ use \App\Session\UserWebMotors as SessionUserWebMotors;
                     <a href="" class="local">Brasil</a>
                 </div>
                 <div class="search-bar">
-                    <input type="text" name="searchbar" id="" placeholder="Digite marca ou modelo do carro">
-                    <img src="../imgs/search.png" alt="" width="20px" class="search-icon">
+                    <form method="POST">
+                        <input type="text" name="searchbar" id="" placeholder="Digite marca ou modelo do carro">
+                        <button name="search_button"><img src="../imgs/search.png" alt="" width="20px" class="search-icon"/></button>
+                    </form>
                 </div>
             </div>
             <div class="advertisement"></div>
         </div>
-    </section>
-    <?php
-        echo $info_user_webmotors['nome_completo'] . "webMotors                ";
-        
-        echo $info_user_google['name'] . "        Google";
-         ?>
-</body>
 
+        
+    </section>
+    <a href="../app/includes/cadastro_veiculo.php" class="btn btn-primary">Cadastro Veículo</a>
+</body>
 </html>

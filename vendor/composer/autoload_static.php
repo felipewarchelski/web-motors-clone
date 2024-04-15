@@ -32,6 +32,10 @@ class ComposerStaticInit5cd48b6645860e6f71f44390d4549abe
         array (
             'Monolog\\' => 8,
         ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -62,8 +66,8 @@ class ComposerStaticInit5cd48b6645860e6f71f44390d4549abe
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -80,6 +84,11 @@ class ComposerStaticInit5cd48b6645860e6f71f44390d4549abe
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-facebook/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

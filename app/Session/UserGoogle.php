@@ -10,12 +10,10 @@ class UserGoogle{
         session_status() !== PHP_SESSION_ACTIVE ? session_start() : true; 
           
     }
-
     /**
      * @param string @name
      * @param string @email
      * @param string @picture
-
      */
     public static function login_google($given_name, $name, $email, $picture){
         self::init();
@@ -25,16 +23,6 @@ class UserGoogle{
             'name' => $name,
             'email' => $email,
             'picture' => $picture
-        ];
-    }
-    /**
-     * @param string @email
-     */
-    public static function login_webmotors($email){
-        self::init();
-        
-        $_SESSION['user_webmotors'] = [
-            'email' => $email
         ];
     }
     /**

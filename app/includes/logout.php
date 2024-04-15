@@ -7,7 +7,7 @@ use \App\Session\UserWebMotors as SessionUserWebMotors;
     if (SessionUserGoogle::isLogged() || SessionUserWebMotors::isLogged()) {
         echo "logado";
     } else {
-        header('Location: ../app/includes/pagina_login.php');
+        header('Location: ../public/login.php');
     }
 
     if (isset($_POST['logout-button'])) {
@@ -22,7 +22,8 @@ use \App\Session\UserWebMotors as SessionUserWebMotors;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logout</title>
+    <title>Logout </title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
