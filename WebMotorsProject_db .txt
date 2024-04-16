@@ -8,8 +8,9 @@ Database web_motors_project:
 
 2. use web_motors_project;
 
-3. create table usuario (id int(9) auto_increment primary key, cpf varchar(14) unique key, nome_completo varchar(50), email varchar(30), genero varchar(25), data_nascimento varchar(10), telefone varchar(15), cep varchar(9), cidade varchar(20), uf varchar(2), imagem_perfil mediumblob);
+3. create table usuario (id int(9) auto_increment primary key, cpf varchar(14) unique key, nome_completo varchar(50), email varchar(30),
+senha varchar(100), genero varchar(25), data_nascimento varchar(10), telefone varchar(15), cep varchar(9), cidade varchar(20), uf varchar(2), nivel varchar(3), imagem_perfil varchar(100)); 
 
-4. create table anuncio (id int(9) auto_increment primary key, marca varchar (20), modelo varchar(20), ano_modelo int(4), ano_fabricacao int(4), versao varchar(50), cor varchar(10), blindado varchar(1), km int(6), descricao varchar(500), preco float(9,2));
+4. create table anuncio (id int(9) auto_increment primary key, marca varchar (20), modelo varchar(20), ano_lancamento int(4), ano_fabricacao int(4), versao varchar(50), cor varchar(20), blindado varchar(1), km int(6), descricao_inicial varchar(50), descricao_completa varchar(500), preco varchar(15), anuncio_liberado varchar(1), imagem_anuncio varchar(100)); 
 
-5. create table modelo_veiculo (id int(9) auto_increment primary key, marca varchar(30), modelo varchar(30), ano_modelo int(4), ano_fabricacao int(4), versao varchar(50), chassi varchar(10), combustivel varchar(10));
+5. create table modelo_veiculo (id int(9) auto_increment primary key, marca varchar(30), modelo varchar(30), ano_modelo int(4), ano_fabricacao int(4), versao varchar(50), chassi varchar(10), combustivel varchar(10), tipo_veiculo varchar(10));
