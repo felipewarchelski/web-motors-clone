@@ -1,30 +1,6 @@
 <?php
-namespace App\Includes;
 
 require '../vendor/autoload.php';
-
-
-
-class PesquisarVeiculos{
-
-    /**
-     * @param string $pesquisar
-     */
-    public static function getSearch($pesquisar){
-        $pesquisar = ["searchbar"];
-
-        return $pesquisar;
-    }
-    /**
-     * @param array 
-     */
-    public static function getResultadoPesquisa ($resultado_pesquisa){
-        
-        return $resultado_pesquisa;
-
-    }
-
-}
 
 include 'config.php';
 
@@ -46,18 +22,13 @@ $query = "SELECT * FROM modelo_veiculo WHERE $condicoes;";
     $result = mysqli_query($con, $query);
 
     if ($result) {
-
         $tableData = array();
-    
         while ($row = mysqli_fetch_assoc($result)) {
-
             $tableData[] = $row;
-
         }
         echo "<table>";
         foreach ($tableData as $rowData) {
             echo "<tr>";
-
             foreach ($rowData as $value) {
                 echo "    <td>  " . $value . "  </td>";
             }
@@ -65,7 +36,6 @@ $query = "SELECT * FROM modelo_veiculo WHERE $condicoes;";
         }
         echo "</table>";
     } else {
-
         echo "Sem resultados para essa consulta! ";
     }
 ?>
