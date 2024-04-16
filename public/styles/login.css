@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    height: 100vh;
+    background-color: #dfe1eb;
+}
+
+/* COMEÇO HEADER */
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-bottom: 1px solid rgb(229 231 235);
+    background-color: white;
+    z-index: 3;
+}
+
+.logo img {
+    width: 145px;
+}
+
+.buttons-header {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.buttons-header a {
+    text-decoration: none;
+    color: #2e2d37;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 22px 15px;
+}
+
+.buttons-header a:hover {
+    border-bottom: 1px solid red;
+}
+
+.login-header {
+    display: flex;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 1rem;
+    height: 100%;
+    align-items: center;
+}
+
+.login-header a {
+    padding-inline: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2e2d37;
+}
+
+.login-header svg {
+    margin: 5px;
+}
+
+/* FIM HEADER */
+
+/* COMEÇO BG IMG */
+
+.imagebg {
+    padding-top: 64px;
+    background-color: rgb(243, 18, 60);
+    overflow: hidden;
+}
+
+.imagebg img {
+    width: 100%;
+    height: 200px;
+    transform: scale(1.3);
+}
+
+/* FIM BG IMG */
+
+/* COMEÇO BOX LOGIN */
+
+.box-login {
+    display: flex;
+    justify-content: center;
+}
+
+.main-box-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 634px;
+    background: rgb(255, 255, 255);
+    position: relative;
+    border-radius: 8px;
+    top: -95px;
+    padding: 60px 32px 36px;
+    box-sizing: border-box;
+}
+
+.main-box-login h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+
+.sub-box-login {
+    display: flex;
+    height: 100%;
+}
+
+.left-box-socials .facebook {
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: rgb(71, 101, 175);
+    color: rgb(255, 255, 255);
+}
+
+.left-box-socials .google {
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(236, 237, 242);
+}
+
+.left-box-socials .apple {
+    height: 40px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: rgb(46, 45, 55);
+    color: rgb(255, 255, 255);
+}
+
+.left-box-socials img {
+    margin-right: 10px;
+}
+
+.left-box-socials button {
+    margin-top: 18px;
+    border: none;
+}
+
+.right-box-info input {
+    padding: 8px 20px 8px 10px;
+    width: 100%;
+    border: 2px solid #ecedf2;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.right-box-info input:focus {
+    outline: 0px;
+}
+
+.right-box-info a {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #f3123c;
+}
+
+.right-box-info p {
+    font-size: 10px;
+}
+
+.form-login input[type="submit"] {
+    padding: 11px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: #f3123c;
+    width: fit-content;
+    border: none;
+}
+
+.mid-line-login {
+    background: rgb(236, 237, 242);
+    width: 1px;
+    height: auto;
+    margin: 0px 32px;
+    position: relative;
+}
+
+.redirect-sign-up {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.redirect-sign-up h3 {
+    margin-top: 15px;
+}
+
+.redirect-sign-up h3,
+p {
+    font-size: 12px;
+}
+
+.redirect-sign-up a {
+    color: #f3123c;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* FIM BOX LOGIN */
+
+/* COMEÇO CONTACT US */
+
+.contact-us {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -45px;
+}
+
+.contact-us h2 {
+    font-size: 12px;
+    margin: 0px;
+    margin-left: 6px;
+}
+
+.contact-us a {
+    color: #f3123c;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* FIM CONTACT US */
+
+/* COMEÇO FOOTER */
+
+.footer-login {
+    background: rgb(46, 45, 55);
+    padding: 24px 32px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+.header-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-footer h2 {
+    color: white;
+    font-size: 12px;
+    margin: 0px;
+}
+
+/* FIM FOOTER */
+
+/* COMEÇO WEBKIT */
+
+/* Scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 20px;
+}
+
+/* FIM WEBKIT */
