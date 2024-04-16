@@ -25,7 +25,6 @@
         <div class="login-header">
             <a href="login.php" type="button">
                 <img src="imgs/user.png" alt="" width="24px">
-                Entrar
             </a>
             <a href="">
                 <img src="imgs/coracao.png" alt="" width="20px">
