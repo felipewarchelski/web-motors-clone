@@ -89,25 +89,28 @@
                         <option value="vermelho">Vermelho</option>
                         <option value="preto">Preto</option>
                     </select>
-                    <div class="blindado"><input type="checkbox" name="blindado" id="blindadoCheckbox"><p>Blindado</p></div>
+                    <div class="blindado"><input type="checkbox" name="blindado" id="blindadoCheckbox">
+                        <p>Blindado</p>
+                    </div>
                     <div class="box-attention">
                         <img src="../imgs/information white.png" alt="" width="20">
                         <h2>Atenção: Não é possível editar os dados do veículo após criar o anúncio. Confirme os dados antes de continuar.</h2>
                     </div>
+                    <div class="div-buttons">
+                        <div class="voltar-container">
+                            <a href="" class="voltar"><img src="../imgs/arrow.png" alt="" width="16px">Voltar</a>
+                        </div>
+                        <div class="continuar-container">
+                            <a href="" class="continuar">Continuar<img src="../imgs/arrow-white.png" alt="" width="16px"></a>
+                            <input type="submit" value="botao" name="botao">
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="div-buttons">
-            <div class="voltar-container">
-                <a href="" class="voltar"><img src="../imgs/arrow.png" alt="" width="16px">Voltar</a>
-            </div>
-            <div class="continuar-container">
-                <a href="" class="continuar">Continuar<img src="../imgs/arrow-white.png" alt="" width="16px"></a>
-            </div>
-
-        </div>
     </section>
     <script>
+        //Apenas selecionar o proximo caso haja selecionado o anterior
         document.addEventListener("DOMContentLoaded", function() {
             const selects = document.querySelectorAll("select");
 
@@ -126,9 +129,8 @@
                     }
                 });
             });
-        });
+        }); //fim selecionar
     </script>
-
 </body>
 
 </html>
