@@ -72,7 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
                 <div class="left-box-socials">
                     <h2>Entre com suas redes sociais</h2>
                     <button class="facebook"><img src="../imgs/facebook.svg" alt="">Entrar com Facebook</button>
+<<<<<<< Updated upstream
                     <button class="google"><img src="../imgs/google.svg" alt="">Continuar com Facebook</button>
+=======
+                    <button class="google"><img src="../imgs/google.svg" alt="">Entrar com Google</button>
+>>>>>>> Stashed changes
                     <button class="apple"><img src="../imgs/apple.svg" alt="">Entrar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>

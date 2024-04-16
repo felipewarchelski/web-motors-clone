@@ -61,7 +61,11 @@ include '../app/includes/config.php';
                 <div class="left-box-socials">
                     <h2>Cadastre-se com suas redes sociais</h2>
                     <button class="facebook"><img src="../imgs/facebook.svg" alt="">Continuar com Facebook</button>
+<<<<<<< Updated upstream
                     <button class="google"><img src="../imgs/google.svg" alt="">Continuar com Facebook</button>
+=======
+                    <button class="google"><img src="../imgs/google.svg" alt="">Entrar com Google</button>
+>>>>>>> Stashed changes
                     <button class="apple"><img src="../imgs/apple.svg" alt="">Continuar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>

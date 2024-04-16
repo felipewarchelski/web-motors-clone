@@ -119,6 +119,11 @@ body {
 }
 
 .main-content {
+<<<<<<< Updated upstream
+=======
+    height: 100vh;
+    margin-left: 350px;
+>>>>>>> Stashed changes
     background-color: #2e2d37;
     width: calc(80% - 40px);
     margin-left: 20%;
@@ -251,8 +256,6 @@ body {
     line-height: 100%;
     border: none;
 }
-
-
 
 /* COMEÇO WEBKIT */
 

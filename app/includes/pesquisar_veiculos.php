@@ -22,13 +22,18 @@ $query = "SELECT * FROM modelo_veiculo WHERE $condicoes;";
     $result = mysqli_query($con, $query);
 
     if ($result) {
+
         $tableData = array();
+    
         while ($row = mysqli_fetch_assoc($result)) {
+
             $tableData[] = $row;
+
         }
         echo "<table>";
         foreach ($tableData as $rowData) {
             echo "<tr>";
+
             foreach ($rowData as $value) {
                 echo "    <td>  " . $value . "  </td>";
             }
@@ -36,6 +41,7 @@ $query = "SELECT * FROM modelo_veiculo WHERE $condicoes;";
         }
         echo "</table>";
     } else {
+
         echo "Sem resultados para essa consulta! ";
     }
 ?>
