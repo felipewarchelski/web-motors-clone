@@ -102,7 +102,6 @@
                         </div>
                         <div class="continuar-container">
                             <a href="" class="continuar">Continuar<img src="../imgs/arrow-white.png" alt="" width="16px"></a>
-                            <input type="submit" value="botao" name="botao">
                         </div>
                     </div>
                 </form>

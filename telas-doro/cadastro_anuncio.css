@@ -209,8 +209,7 @@ body {
 .div-buttons {
     display: flex;
     margin-top: 20px;
-    justify-content: space-around;
-    gap: 700px;
+    justify-content: space-between;
     width: 100%;
     align-items: center;
     margin-bottom: 20px;
