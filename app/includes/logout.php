@@ -1,17 +1,15 @@
 <?php
 
 require '../vendor/autoload.php';
-use \App\Session\UserGoogle as SessionUserGoogle;
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
-    if (SessionUserGoogle::isLogged() || SessionUserWebMotors::isLogged()) {
+    if (SessionUserWebMotors::isLogged()) {
         echo "logado";
     } else {
         header('Location: ../public/login.php');
     }
 
     if (isset($_POST['logout-button'])) {
-        SessionUserGoogle::logout();
         SessionUserWebMotors::logout();            
         exit;
     }

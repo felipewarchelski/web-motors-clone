@@ -1,7 +1,6 @@
 
 <?php
 require '../vendor/autoload.php';
-use \App\Session\UserGoogle as SessionUserGoogle;
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
 if(isset($_REQUEST['search_button'])) {   
@@ -44,16 +43,10 @@ if(isset($_REQUEST['search_button'])) {
                 <img src="../imgs/user.png" alt="" width="24px">
                 <?php
 
-                $info_user_google = SessionUserGoogle::getInfo();
                 $info_user_webmotors = SessionUserWebMotors::getInfo();
                 
-                if (SessionUserGoogle::isLogged() || SessionUserWebMotors::isLogged()) {
-                    
-                    if (SessionUserGoogle::getInfo() != null) {
-                        if (SessionUserGoogle::isLogged()) {
-                            echo  $info_user_google['given_name'] ;
-                        }
-                    } 
+                if (SessionUserWebMotors::isLogged()) {
+                     
                     if (SessionUserWebMotors::getInfo() != null) {
                         if (SessionUserWebMotors::isLogged()) {
                             echo  $info_user_webmotors['nome_completo'] ;

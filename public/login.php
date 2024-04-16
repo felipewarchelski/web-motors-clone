@@ -72,24 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
                 <div class="left-box-socials">
                     <h2>Entre com suas redes sociais</h2>
                     <button class="facebook"><img src="../imgs/facebook.svg" alt="">Entrar com Facebook</button>
-                    <!-- BOTÂO GOOGLE-->
-                    <script src="https://accounts.google.com/gsi/client" async></script>
-                    <div id="g_id_onload"
-                        data-client_id="267853270306-ov6nhrnjltbpfcns91piokm37aenvu4a.apps.googleusercontent.com"
-                        data-login_uri="http://localhost/web-motors-clone/app/includes/login_google.php"
-                        data-auto_prompt="false">
-                    </div>
-                    <div class="d-flex justify-content-center"> 
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-size="large"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-shape="rectangular"
-                            data-logo_alignment="left">
-                        </div>
-                    </div>
-                    <!-- BOTÂO GOOGLE-->
+                    <button class="google"><img src="../imgs/google.svg" alt="">Continuar com Facebook</button>
                     <button class="apple"><img src="../imgs/apple.svg" alt="">Entrar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>
