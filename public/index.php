@@ -46,11 +46,7 @@ if(isset($_REQUEST['search_button'])) {
                 $info_user_webmotors = SessionUserWebMotors::getInfo();
                 
                 if (SessionUserWebMotors::isLogged()) {
-<<<<<<< Updated upstream
                      
-=======
-                    
->>>>>>> Stashed changes
                     if (SessionUserWebMotors::getInfo() != null) {
                         if (SessionUserWebMotors::isLogged()) {
                             echo  $info_user_webmotors['nome_completo'] ;
@@ -98,86 +94,31 @@ if(isset($_REQUEST['search_button'])) {
                 <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
                 <h6>352.377 carros encontrados</h6>
                 <div class="main-cards">
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Escada em cima</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/anuncio/images.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Forda Ka</h5>
-                            <p class="card-text">1.4 Completo</p>
-                            <h2>R$ 27.590</h2>
-                            <h3>2019/2019</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Escada em cima</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Escada em cima</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Escada em cima</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Ver anúncio</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Ver anúncio</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 14.8rem;">
-                        <img src="../imgs/uno.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Fiat Uno</h5>
-                            <p class="card-text">Escada em cima</p>
-                            <h2>R$ 5.270</h2>
-                            <h3>2004/2005</h3>
-                            <a href="#" class="btn btn-primary">Ver anúncio</a>
-                        </div>
-                    </div>
+                    <?php
+                    include '../app/includes/gera_anuncio.php';
+
+                    $num_rows = count($tableData);
+
+                    $repetir = range(1, $num_rows);
+
+                    if (is_array($tableData) && !empty($tableData)) {
+                        
+                        foreach ($tableData as $dados) {
+                            echo '<div class="card" style="width: 14.8rem;">
+                                    <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
+                                        <p class="card-text" style="max-height: 3.6em; overflow: hidden; text-overflow: ellipsis;">' . $dados['descricao_inicial'] . '</p>
+                                        <h2>R$' . $dados['preco'] . '</h2>
+                                        <h3>' . $dados['ano_fabricacao'] . '/' . $dados['ano_lancamento'] . '</h3>
+                                        <a href="#" class="btn btn-primary">Ver anúncio</a>
+                                    </div>
+                                </div>';
+                        }
+                    } else {
+                        echo "Nenhum dado encontrado.";
+                    }
+                    ?>
                 </div>
             </div>
         </div>

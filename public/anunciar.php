@@ -18,17 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     $cor = $_POST['cor'];
     $blindado = "N";
     $km = $_POST['km'];
-    $descricao = $_POST['descricao'];
+    $descricao_inicial = $_POST['descricao_inicial'];
+    $descricao_completa = $_POST['descricao_completa'];
     $preco = $_POST['preco'];
     $anuncio_liberado = "S";
 
     if (isset($_POST['blindado'])) {
         $blindado = "S";
-        }
+    }
 
-    $query = "INSERT INTO anuncio (id, marca, ano_lancamento, ano_fabricacao, versao, cor, blindado, km, descricao,
-                                  preco, anuncio_liberado,imagem_anuncio) VALUES (null, '$marca', '$ano_lancamento', 
-                                  '$ano_fabricacao', '$versao', '$cor', '$blindado', '$km', '$descricao', '$preco', 
+    $query = "INSERT INTO anuncio (marca, modelo, ano_lancamento, ano_fabricacao, versao, cor, blindado, km, descricao_inicial, descricao_completa,
+                                  preco, anuncio_liberado,imagem_anuncio) VALUES ('$marca', '$modelo', '$ano_lancamento', 
+                                  '$ano_fabricacao', '$versao', '$cor', '$blindado', '$km', '$descricao_inicial', '$descricao_completa', '$preco', 
                                   '$anuncio_liberado', '$endereco_imagem');";
 
     $result = mysqli_query($con, $query);
@@ -38,6 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     } else {
         echo "Erro ao anunciar: " . mysqli_error($con);
     }
+
+
 
 }
 ?>
@@ -88,13 +91,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
             <input type="number" class="form-control" id="km" name="km" required>
         </div>
         <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição</label>
-            <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
+            <label for="descricao_inicial" class="form-label">Descrição inicial. (máx 30)</label>
+            <textarea class="form-control" id="descricao_inicial" name="descricao_inicial" rows="1" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="descricao_completa" class="form-label">Descrição completa</label>
+            <textarea class="form-control" id="descricao_completa" name="descricao_completa" rows="3" required></textarea>
         </div>
         <div class="mb-3">
             <label for="preco" class="form-label">Preço</label>
-            <input type="number" class="form-control" id="preco" name="preco" required>
+            <input type="text" class="form-control" id="preco" name="preco" oninput="formatarPreco(this)" required>
         </div>
+        <script>
+            function formatarPreco(input) {
+                let valor = input.value.replace(/\D/g, '');
+                valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                input.value = valor;
+            }
+        </script>
         <div class="form-group">
             <label for="imagens ">Imagens</label>
             <input type="file" class="form-control-file" id="imagens" name="imagens">
