@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    height: 100vh;
+}
+
+/* COMEÇO HEADER */
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-bottom: 1px solid rgb(229 231 235);
+    z-index: 3;
+    background-color: white;
+}
+
+.logo {
+    align-items: center;
+}
+
+.logo img {
+    width: 145px;
+}
+
+.buttons-header {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.buttons-header a {
+    text-decoration: none;
+    color: #2e2d37;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 22px 15px;
+}
+
+.buttons-header a:hover {
+    border-bottom: 1px solid red;
+}
+
+.login-header {
+    display: flex;
+    border-left: 1px solid #e5e7eb;
+    padding-left: 1rem;
+    height: 100%;
+    align-items: center;
+}
+
+.login-header a {
+    padding-inline: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: #2e2d37;
+}
+
+.login-header svg {
+    margin: 5px;
+}
+
+/* FIM HEADER */
+
+.main {
+    padding-top: 64px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.navbar-left {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 20%;
+    height: 100vh;
+    left: 0px;
+}
+
+.title-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 64px;
+}
+
+.title-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 6px;
+}
+
+.carros-title {
+    border-bottom: 3px solid #f3123c;
+    color: #2e2e37;
+}
+
+.motos-title {
+    color: #94949e;
+}
+
+.nav-content {
+    width: 100%;
+}
+
+.main-content {
+    background-color: #2e2d37;
+    width: calc(80% - 40px);
+    margin-left: 20%;
+}
+
+.div-header-content {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    justify-content: space-between;
+    background-color: white;
+    z-index: 5;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: calc(80% - 40px);
+}
+
+.left-header a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #2e2d37;
+    border-radius: 8px;
+    border: 1px solid #2e2d37;
+    padding: 1px 8px;
+}
+
+.left-header img:hover {
+    cursor: pointer;
+}
+
+.right-header {
+    display: flex;
+    align-items: center;
+}
+
+.right-header p {
+    margin: 0;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #686976;
+}
+
+.right-header input {
+    width: 400px;
+    padding: 10px 20px 10px 40px;
+    border: 2px solid #ecedf2;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.right-header input:focus {
+    outline: 0px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 23px;
+    right: 555px;
+}
+
+.view-list {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.content {
+    margin-top: 64px;
+    padding: 15px 30px;
+    overflow-y: scroll;
+    -webkit-box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
+    background-color: #f3f5f8;
+    min-height: calc(100vh - 64px);
+}
+
+.content h3 {
+    font-size: 10px;
+    color: #8b8c99;
+    margin-bottom: 20px;
+}
+
+.content n {
+    font-weight: 600;
+    color: #8b8c99;
+}
+
+.content h4 {
+    font-weight: 600;
+}
+
+.content h6 {
+    color: #686976;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-cards {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 10px 12px 10px 0px;
+}
+
+.card img {
+    aspect-ratio: 14/9;
+    object-fit: cover;
+}
+
+.card a {
+    display: flex;
+    width: 100%;
+    padding: 14px 16px;
+    margin: 16px 0px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: rgb(46, 45, 55);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
+}
+
+
+
+/* COMEÇO WEBKIT */
+
+/* Scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 20px;
+}
+
+/* FIM WEBKIT */
