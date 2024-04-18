@@ -1,5 +1,6 @@
 <?php
- include '../app/includes/logout.php';
+
+include '../app/includes/logout.php';
 ?>
 <html>
 <head>
