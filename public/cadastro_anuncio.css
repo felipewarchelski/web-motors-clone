@@ -195,7 +195,6 @@ body {
     font-size: 14px;
     font-weight: 500;
     box-sizing: border-box;
-    -moz-appearance: textfield;
     margin-bottom: 5px;
     color: #4a4a4c;
 }
@@ -213,7 +212,6 @@ body {
     font-size: 14px;
     font-weight: 500;
     box-sizing: border-box;
-    -moz-appearance: textfield;
     margin-bottom: 5px;
     color: #4a4a4c;
 }
@@ -226,7 +224,6 @@ body {
     font-size: 14px;
     font-weight: 500;
     box-sizing: border-box;
-    -moz-appearance: textfield;
     margin-bottom: 5px;
     resize: none;
     color: #4a4a4c;
