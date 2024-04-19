@@ -1,6 +1,5 @@
-
 <?php
-require '../vendor/autoload.php';
+include '../app/Session/UserWebMotors.php';
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
 if(isset($_REQUEST['search_button'])) {   
@@ -29,7 +28,7 @@ if(isset($_REQUEST['search_button'])) {
 <body>
     <section class="header">
         <div class="logo">
-            <a href=""><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
         </div>
         <div class="buttons-header">
             <a href="">Comprar</a>
@@ -46,7 +45,7 @@ if(isset($_REQUEST['search_button'])) {
                 $info_user_webmotors = SessionUserWebMotors::getInfo();
                 
                 if (SessionUserWebMotors::isLogged()) {
-                     
+                    
                     if (SessionUserWebMotors::getInfo() != null) {
                         if (SessionUserWebMotors::isLogged()) {
                             echo  $info_user_webmotors['nome_completo'] ;
@@ -82,8 +81,11 @@ if(isset($_REQUEST['search_button'])) {
                     <a href="">Brasil</a>
                 </div>
                 <div class="right-header">
-                    <input type="text" name="procura" id="" placeholder="Digite marca ou modelo do carro">
-                    <img src="../imgs/search.png" alt="" width="18px" class="search-icon">
+                    <form action="index.php" method="GET">
+                        <input type="text" name="pesquisa" id="pesquisa" placeholder="Digite marca ou modelo do carro">
+                        <? if (isset($_GET['pesquisa'])) { $pesquisa = $_GET['pesquisa'];} ?>     
+                    </form>
+                    <a href=""><img src="../imgs/search.png" alt="" width="18px" class="search-icon"></a>
                     <img src="../imgs/view-list.png" alt="" width="20px" class="view-list">
                     <img src="../imgs/up-and-down-arrow.png" alt="" width="22px">
                     <p>MAIS RELEVANTES</p>
@@ -94,9 +96,25 @@ if(isset($_REQUEST['search_button'])) {
                 <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
                 <h6>352.377 carros encontrados</h6>
                 <div class="main-cards">
+                    <!-- INÍCIO DO PHP PARA IMPRIMIR O ANÚNCIO NA TELA -->
+                    
                     <?php
                     include '../app/includes/gera_anuncio.php';
 
+                    $valor_pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
+
+                    $valor_pesquisa_formatado = ucwords(strtolower($valor_pesquisa));
+
+                    $params = array(
+                        'pesquisa' => $valor_pesquisa,
+                    );
+                    $query_string = http_build_query($params);
+                    $url = 'index.php?' . $query_string;
+
+                    if($url != 'index.php?pesquisa=') {
+                        include '../app/includes/pesquisar_veiculos.php';
+                    }
+                    
                     $num_rows = count($tableData);
 
                     $repetir = range(1, $num_rows);
@@ -116,9 +134,10 @@ if(isset($_REQUEST['search_button'])) {
                                 </div>';
                         }
                     } else {
-                        echo "Nenhum dado encontrado.";
+                        echo "Sem resultados para essa consulta!";
                     }
                     ?>
+                    <!-- FIM DO PHP PARA IMPRIMIR O ANÚNCIO NA TELA -->
                 </div>
             </div>
         </div>
