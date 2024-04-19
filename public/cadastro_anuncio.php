@@ -99,8 +99,8 @@
                     <label for="descricaocompleta" id="">Descrição Completa</label>
                     <textarea id="descricao" name="descricao" maxlength="100" placeholder="Nos conte com detalhes sobre seu veículo"></textarea>
                     <div class="form-group">
-                        <label for="imagens ">Imagens</label>
-                        <input type="file" class="form-control-file" id="imagens" name="imagens">
+                        <label for="imagens ">Imagens*</label>
+                        <input type="file" class="form-control-file" id="imagens" name="imagens" required>
                         <small class="form-text text-muted">Selecione uma imagem para o anúncio nos formatos de imagem (jpg, png, gif, etc.) até 16MB.</small>
                     </div>
                     <div class="box-attention">
