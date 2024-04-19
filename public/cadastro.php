@@ -1,23 +1,23 @@
 <?php
 include '../app/includes/config.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar']))  {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
 
-        $nome_completo = $_POST['nome_completo'];
-        $email = $_POST['email'];
-        $password = md5($_POST['password']);
+    $nome_completo = $_POST['nome_completo'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
 
+    $check_email_exists = "SELECT * FROM usuario WHERE email = '$email'";
+    $result_check = mysqli_query($con, $check_email_exists);
+
+    if (mysqli_num_rows($result_check) > 0) {
+        echo "<script>alert('Este email já existe, tente outro!');</script>";
+    } else {
         $query = "INSERT INTO usuario (id, cpf, nome_completo, email, senha, genero, data_nascimento, telefone, cep, cidade, uf,
         nivel, imagem_perfil) VALUES (null, null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, null, 'ADM');";
-
         $result = mysqli_query($con, $query);
-
-        if ($result) {
-            echo "Cadastro bem-sucedido";
-        } else {
-            echo "Erro ao cadastrar usuário: " . mysqli_error($con);
-        }
     }
+}
 
 ?>
 
