@@ -112,7 +112,7 @@ if(isset($_REQUEST['search_button'])) {
                     $url = 'index.php?' . $query_string;
 
                     if($url != 'index.php?pesquisa=') {
-                        include '../app/includes/pesquisar_veiculos.php';
+                        include '../app/includes/pesquisar_veiculos.php';   
                     }
                     
                     $num_rows = count($tableData);
@@ -120,7 +120,6 @@ if(isset($_REQUEST['search_button'])) {
                     $repetir = range(1, $num_rows);
 
                     if (is_array($tableData) && !empty($tableData)) {
-                        
                         foreach ($tableData as $dados) {
                             echo '<div class="card" style="width: 14.8rem;">
                                     <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">

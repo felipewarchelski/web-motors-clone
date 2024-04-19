@@ -58,7 +58,9 @@ if(isset($_POST['submit'])) {
         descricao_completa VARCHAR(500),
         preco VARCHAR(15),
         anuncio_liberado VARCHAR(1),
-        imagem_anuncio VARCHAR(100)
+        imagem_anuncio VARCHAR(100),
+        id_usuario INT(9),
+        FOREING KEY (id_usuario) REFERENCES usuario(id)
     )";
 
     if ($conn->query($sql) === TRUE) {

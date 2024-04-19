@@ -15,12 +15,13 @@ class UserWebMotors{
      * @param string $email
      * @param string $nome_completo
      */
-    public static function login_webmotors($email, $nome_completo){
+    public static function login_webmotors($email, $nome_completo, $id){
         self::init();
         
         $_SESSION['user_webmotors'] = [
             'email' => $email,
-            'nome_completo'  => $nome_completo
+            'nome_completo'  => $nome_completo,
+            'id' => $id
         ];
     }
     /**
@@ -45,7 +46,7 @@ class UserWebMotors{
         self::init();
 
         unset($_SESSION['user_webmotors']);
-        header('Location: index.php');
+        echo '<script>alert("Você saiu da sua conta!");window.location.href ="../../public/index.php";</script>';
     }
     
 }

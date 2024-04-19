@@ -1,8 +1,18 @@
 <?php
 include '../app/includes/config.php';
+include '../app/Session/UserWebMotors.php';
+use App\Session\UserWebMotors as SessionUserWebMotors;
 
+if(!SessionUserWebMotors::isLogged()){
+    echo '<script>alert("Você precisa fazer login. Por favor, tente novamente!");window.location.href ="login.php";</script>';
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
-
+        
+    if(isset($_FILES['imagens'])){
+            echo "Tem imagem";
+        } else{
+            echo "Sem imagem";
+        }
     $imagens = $_FILES['imagens'];
 
     move_uploaded_file($imagens['tmp_name'], '../imgs/anuncio/' . $imagens['name']);
@@ -42,82 +52,154 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
 
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anunciar Veículo</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/anunciar.css">
+    <title>Cadastro Anuncio</title>
 </head>
+
 <body>
+    <section class="header">
+        <div class="logo">
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+        </div>
+        <div class="buttons-header"></div>
+        <div class="login-header"></div>
+    </section>
+    <section class="title-register">
+        <div class="title-content">
+            <div class="image-container">
+                <img src="../imgs/car.png" alt="">
+            </div>
+            <h1>Cadastre seu veículo</h1>
+        </div>
+    </section>
+    <section class="main">
+        <div class="div-formulario">
+            <h1>Vamos começar seu anúncio?</h1>
+            <div class="container-form">
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <p>Campos com asterisco (*) são obrigatórios</p>
+                    <label for="marca">Marca*</label>
+                    <select name="marca" id="marcaSelect">
+                        <option value="" disabled selected>Escolha uma marca</option>
+                        <option value="Fiat">Fiat</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Volvo">Volvo</option>
+                    </select>
+                    <label for="modelo" id="modeloLabel">Modelo*</label>
+                    <select name="modelo" id="modeloSelect" disabled>
+                        <option value="" disabled selected>Escolha um modelo</option>
+                        <option value="c70">c70</option>
+                        <option value="c80">c80</option>
+                        <option value="CX90">XC90</option>
+                        <option value="c150">c150</option>
+                    </select>
+                    <div class="ano-fabricacao-modelo">
+                        <div class="ano">
+                            <label for="ano" id="">Ano de lançamento*</label>
+                            <select name="ano_lancamento" id="anoSelect" disabled>
+                                <option value="" disabled selected>Escolha um ano</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="fabricacao">
+                            <label for="fabricacao" id="">Ano de Fabricação*</label>
+                            <select name="ano_fabricacao" id="fabricacaoSelect" disabled>
+                                <option value="" disabled selected>Escolha um ano</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label for="versao" id="">Versão*</label>
+                    <select name="versao" id="versaoSelect" disabled>
+                        <option value="" disabled selected>Escolha uma versão</option>
+                        <option value="Completa">Completa</option>
+                    </select>
+                    <label for="cor" id="">Cor*</label>
+                    <select name="cor" id="corSelect" disabled>
+                        <option value="" disabled selected>Escolha uma cor</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Vermelho">Vermelho</option>
+                        <option value="Preto">Preto</option>
+                        <option value="Cinza Escuro">Cinza Escuro</option>
+                        <option value="Prata">Prata</option>
+                    </select>
+                    <div class="blindado"><input type="checkbox" name="blindado" id="blindadoCheckbox">
+                        <p>Blindado</p>
+                    </div>
+                    <label for="km" id="" >Quilometragem(KM)*</label>
+                    <input type="number" name="km" id="" placeholder="Digite a quilometragem do seu veículo" required>
+                    <label for="descricaoinical" id="">Descrição Inicial*(máx 40)</label>
+                    <input type="text" name="descricao_inicial" id="" maxlength="40" placeholder="Conte brevemente sobre seu veículo" required>
+                    <label for="descricaocompleta" id="">Descrição Completa</label>
+                    <textarea id="descricao" name="descricao_completa" maxlength="500" placeholder="Nos conte com detalhes sobre seu veículo" required></textarea>
+                    <label for="preco" id="" >Preço</label>
+                    <input type="text" name="preco" id="preco" maxlength="11" oninput="formatarPreco(this)" placeholder="Digite o preço do seu veículo" required>
+                    <script>
+                        function formatarPreco(input) {
+                            let valor = input.value.replace(/\D/g, '');
+                            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                            input.value = valor;
+                         }
+                    </script>
+                    <div class="form-group">
+                        <label for="imagens ">Imagens*</label>
+                        <input type="file" class="form-control-file" id="imagens" name="imagens" accept="image/*" required>
+                        <small class="form-text text-muted">Selecione uma imagem para o anúncio nos formatos de imagem (jpg, png, gif, etc.) até 16MB.</small>
+                    </div>
+                    <div class="box-attention">
+                        <img src="../imgs/information white.png" alt="" width="20">
+                        <h2>Atenção: Não é possível editar os dados do veículo após criar o anúncio. Confirme os dados antes de continuar.</h2>
+                    </div>
+                    <div class="div-buttons">
+                        <div class="continuar-container">
+                            <button class="continuar" name="anunciar">Anunciar<img src="../imgs/arrow-white.png" alt="" width="16px"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script>
+        //Apenas selecionar o proximo caso haja selecionado o anterior
+        document.addEventListener("DOMContentLoaded", function() {
+            const selects = document.querySelectorAll("select");
 
-<div class="container">
-    <h1>Criar Anúncio</h1>
-    <form action="anunciar.php" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="marca" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="marca" name="marca" required>
-        </div>
-        <div class="mb-3">
-            <label for="modelo" class="form-label">Modelo</label>
-            <input type="text" class="form-control" id="modelo" name="modelo" required>
-        </div>
-        <div class="mb-3">
-            <label for="ano_lancamento" class="form-label">Ano de Lançamento</label>
-            <input type="number" class="form-control" id="ano_lancamento" name="ano_lancamento" required>
-        </div>
-        <div class="mb-3">
-            <label for="ano_fabricacao" class="form-label">Ano de Fabricação</label>
-            <input type="number" class="form-control" id="ano_fabricacao" name="ano_fabricacao" required>
-        </div>
-        <div class="mb-3">
-            <label for="versao" class="form-label">Versão</label>
-            <input type="text" class="form-control" id="versao" name="versao" required>
-        </div>
-        <div class="mb-3">
-            <label for="cor" class="form-label">Cor</label>
-            <input type="text" class="form-control" id="cor" name="cor" required>
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="blindado" name="blindado">
-            <label class="form-check-label" for="blindado">Blindado</label>
-        </div>
-        <div class="mb-3">
-            <label for="km" class="form-label">Quilometragem (km)</label>
-            <input type="number" class="form-control" id="km" name="km" required>
-        </div>
-        <div class="mb-3">
-            <label for="descricao_inicial" class="form-label">Descrição inicial. (máx 30)</label>
-            <textarea class="form-control" id="descricao_inicial" name="descricao_inicial" rows="1" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="descricao_completa" class="form-label">Descrição completa</label>
-            <textarea class="form-control" id="descricao_completa" name="descricao_completa" rows="3" required></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="preco" class="form-label">Preço</label>
-            <input type="text" class="form-control" id="preco" name="preco" oninput="formatarPreco(this)" required>
-        </div>
-        <script>
-            function formatarPreco(input) {
-                let valor = input.value.replace(/\D/g, '');
-                valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                input.value = valor;
-            }
-        </script>
-        <div class="form-group">
-            <label for="imagens ">Imagens</label>
-            <input type="file" class="form-control-file" id="imagens" name="imagens">
-            <small class="form-text text-muted">Selecione uma imagem para o anúncio. Aceita formatos de imagem (jpg, png, gif, etc.) até 16MB.</small>
-        </div>
-        <button type="submit" name="anunciar"class="btn btn-primary">Criar Anúncio</button>
-        <a href="index.php">Voltar a tela principal</a>
-    </form>
-</div>
+            selects.forEach((select, index) => {
+                select.addEventListener("change", () => {
+                    const selectedOption = select.options[select.selectedIndex];
+                    const isValidOption = selectedOption.value !== "" && !selectedOption.disabled;
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z5GJjpf1bsSH7URvG0U2s5fkoJ0BwXwOJwlwJd" crossorigin="anonymous"></script>
+                    if (isValidOption && index < selects.length - 1) {
+                        selects[index + 1].removeAttribute("disabled");
+                    } else {
+                        for (let i = index + 1; i < selects.length; i++) {
+                            selects[i].setAttribute("disabled", true);
+                            selects[i].selectedIndex = 0;
+                        }
+                    }
+                });
+            });
+        }); //fim selecionar
+    </script>
 </body>
+
 </html>
