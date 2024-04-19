@@ -1,7 +1,7 @@
 <?php
 include '../app/includes/config.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
+if (@$_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
 
     $imagens = $_FILES['imagens'];
 

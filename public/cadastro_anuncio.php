@@ -1,3 +1,46 @@
+<?php
+include '../app/includes/config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
+
+    $imagens = $_FILES['imagens'];
+
+    move_uploaded_file($imagens['tmp_name'], '../imgs/anuncio/' . $imagens['name']);
+
+    $endereco_imagem = '../imgs/anuncio/' . $imagens['name'];
+
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $ano_lancamento = $_POST['ano_lancamento'];
+    $ano_fabricacao = $_POST['ano_fabricacao'];
+    $versao = $_POST['versao'];
+    $cor = $_POST['cor'];
+    $blindado = "N";
+    $km = $_POST['km'];
+    $descricao_inicial = $_POST['descricao_inicial'];
+    $descricao_completa = $_POST['descricao_completa'];
+    $preco = $_POST['preco'];
+    $anuncio_liberado = "S";
+
+    if (isset($_POST['blindado'])) {
+        $blindado = "S";
+    }
+
+    $query = "INSERT INTO anuncio (marca, modelo, ano_lancamento, ano_fabricacao, versao, cor, blindado, km, descricao_inicial, descricao_completa,
+                                  preco, anuncio_liberado,imagem_anuncio) VALUES ('$marca', '$modelo', '$ano_lancamento', 
+                                  '$ano_fabricacao', '$versao', '$cor', '$blindado', '$km', '$descricao_inicial', '$descricao_completa', '$preco', 
+                                  '$anuncio_liberado', '$endereco_imagem');";
+
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        echo "Anunciado!";
+    } else {
+        echo "Erro ao anunciar: " . mysqli_error($con);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,18 +88,18 @@
                     <label for="modelo" id="modeloLabel">Modelo*</label>
                     <select name="modelo" id="modeloSelect" disabled>
                         <option value="" disabled selected>Escolha um modelo</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="chevrolet">Chevrolet</option>
-                        <option value="volkswagen">Volkswagen</option>
-                        <option value="ford">Ford</option>
-                        <option value="honda">Honda</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="nissan">Nissan</option>
+                        <option value="fiat">Uno</option>
+                        <option value="chevrolet">Onix</option>
+                        <option value="volkswagen">Fusca</option>
+                        <option value="ford">Focus</option>
+                        <option value="honda">Civic</option>
+                        <option value="toyota">Hilux</option>
+                        <option value="nissan">Frontier</option>
                     </select>
                     <div class="ano-fabricacao-modelo">
                         <div class="ano">
                             <label for="ano" id="">Ano do modelo*</label>
-                            <select name="ano" id="anoSelect" disabled>
+                            <select name="ano_lancamento" id="modeloSelect" disabled>
                                 <option value="" disabled selected>Escolha um ano</option>
                                 <option value="1995">1995</option>
                                 <option value="1996">1996</option>
@@ -65,7 +108,7 @@
                         </div>
                         <div class="fabricacao">
                             <label for="fabricacao" id="">Ano de Fabricação*</label>
-                            <select name="fabricacao" id="fabricacaoSelect" disabled>
+                            <select name="ano_fabricacao" id="modeloSelect" disabled>
                                 <option value="" disabled selected>Escolha um ano</option>
                                 <option value="1995">1995</option>
                                 <option value="1996">1996</option>
@@ -74,7 +117,7 @@
                         </div>
                     </div>
                     <label for="versao" id="">Versão*</label>
-                    <select name="versao" id="versaoSelect" disabled>
+                    <select name="versao" id="modeloSelect" disabled>
                         <option value="" disabled selected>Escolha uma versão</option>
                         <option value="c70">c70</option>
                         <option value="c80">c80</option>
@@ -82,7 +125,7 @@
                         <option value="c150">c150</option>
                     </select>
                     <label for="cor" id="">Cor*</label>
-                    <select name="cor" id="corSelect" disabled>
+                    <select name="cor" id="modeloSelect" disabled>
                         <option value="" disabled selected>Escolha uma cor</option>
                         <option value="verde">Verde</option>
                         <option value="azul">Azul</option>
@@ -93,11 +136,20 @@
                         <p>Blindado</p>
                     </div>
                     <label for="km" id="">Quilometragem(KM)*</label>
-                    <input type="number" name="km" id="" placeholder="Digite a quilometragem do seu veículo">
+                    <input type="text" name="km" id="" placeholder="Digite a quilometragem do seu veículo" oninput="formatarPreco(this)" maxlength="9">
                     <label for="descricaoinical" id="">Descrição Inicial*</label>
-                    <input type="text" name="descricao_inicial" id="" maxlength="30" placeholder="Conte brevemente sobre seu veículo">
+                    <input type="text" name="descricao_inicial" id="" maxlength="14" placeholder="Conte brevemente sobre seu veículo">
                     <label for="descricaocompleta" id="">Descrição Completa</label>
-                    <textarea id="descricao" name="descricao" maxlength="100" placeholder="Nos conte com detalhes sobre seu veículo"></textarea>
+                    <textarea id="descricao" name="descricao_completa" maxlength="200" placeholder="Nos conte com detalhes sobre seu veículo"></textarea>
+                    <label for="preco" id="">Preço*</label>
+                    <input type="text" name="preco" id="" placeholder="Digite o preço do seu veículo" oninput="formatarPreco(this)" maxlength="15">
+                    <script>
+                        function formatarPreco(input) {
+                            let valor = input.value.replace(/\D/g, '');
+                            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                            input.value = valor;
+                        }
+                    </script>
                     <div class="form-group">
                         <label for="imagens ">Imagens*</label>
                         <input type="file" class="form-control-file" id="imagens" name="imagens" required>
@@ -109,10 +161,11 @@
                     </div>
                     <div class="div-buttons">
                         <div class="voltar-container">
-                            <a href="" class="voltar"><img src="../imgs/arrow.png" alt="" width="16px">Voltar</a>
+                            <a href="index.php" class="voltar"><img src="../imgs/arrow.png" alt="" width="16px">Voltar</a>
                         </div>
                         <div class="continuar-container">
-                            <a href="" class="continuar">Continuar<img src="../imgs/arrow-white.png" alt="" width="16px"></a>
+                            <input type="submit" value="Cadastrar" name="anunciar">
+                            <img src="../imgs/arrow-white.png" alt="" width="18">
                         </div>
                     </div>
                 </form>

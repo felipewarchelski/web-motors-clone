@@ -284,9 +284,26 @@ body {
     text-decoration: none;
 }
 
-.continuar img {
-    margin-left: 8px;
-    transform: rotate(180deg);
+.continuar-container input[type="submit"] {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 11px 36px 10px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #2e2d37;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.continuar-container img {
+    position: absolute;
+    right: 745px;
+    top: 1348px;
 }
 
 
@@ -310,15 +327,13 @@ body {
     font-weight: 600;
 }
 
-
-
-/* COMEÇO WEBKIT */
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* COMEÇO WEBKIT */
 
 /* Scroll-bar */
 ::-webkit-scrollbar {
