@@ -92,6 +92,17 @@
                     <div class="blindado"><input type="checkbox" name="blindado" id="blindadoCheckbox">
                         <p>Blindado</p>
                     </div>
+                    <label for="km" id="">Quilometragem(KM)*</label>
+                    <input type="number" name="km" id="" placeholder="Digite a quilometragem do seu veículo">
+                    <label for="descricaoinical" id="">Descrição Inicial*</label>
+                    <input type="text" name="descricao_inicial" id="" maxlength="30" placeholder="Conte brevemente sobre seu veículo">
+                    <label for="descricaocompleta" id="">Descrição Completa</label>
+                    <textarea id="descricao" name="descricao" maxlength="100" placeholder="Nos conte com detalhes sobre seu veículo"></textarea>
+                    <div class="form-group">
+                        <label for="imagens ">Imagens</label>
+                        <input type="file" class="form-control-file" id="imagens" name="imagens">
+                        <small class="form-text text-muted">Selecione uma imagem para o anúncio nos formatos de imagem (jpg, png, gif, etc.) até 16MB.</small>
+                    </div>
                     <div class="box-attention">
                         <img src="../imgs/information white.png" alt="" width="20">
                         <h2>Atenção: Não é possível editar os dados do veículo após criar o anúncio. Confirme os dados antes de continuar.</h2>

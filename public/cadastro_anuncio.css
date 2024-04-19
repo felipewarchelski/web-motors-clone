@@ -171,6 +171,7 @@ body {
     width: 100%;
     transition: opacity 0.3s ease;
     margin-bottom: 10px;
+    color: #4a4a4c;
 }
 
 .ano-fabricacao-modelo {
@@ -186,6 +187,51 @@ body {
 #modeloSelect[disabled] {
     opacity: 0.5;
 }
+
+.container-form input[type="number"] {
+    padding: 10px 20px 10px 15px;
+    border: 2px solid #ecedf2;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+    margin-bottom: 5px;
+    color: #4a4a4c;
+}
+
+.container-form input[type="number"]:focus,
+.container-form input[type="text"]:focus,
+.container-form textarea:focus {
+    outline: 0px;
+}
+
+.container-form input[type="text"] {
+    padding: 10px 20px 10px 15px;
+    border: 2px solid #ecedf2;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+    margin-bottom: 5px;
+    color: #4a4a4c;
+}
+
+.container-form textarea {
+    height: 130px;
+    padding: 10px 20px 10px 15px;
+    border: 2px solid #ecedf2;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+    -moz-appearance: textfield;
+    margin-bottom: 5px;
+    resize: none;
+    color: #4a4a4c;
+}
+
 
 .box-attention {
     display: flex;
@@ -251,6 +297,7 @@ body {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    margin-bottom: 8px;
 }
 
 .blindado input {
@@ -264,4 +311,10 @@ body {
     font-size: 12px;
     color: #696977;
     font-weight: 600;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
