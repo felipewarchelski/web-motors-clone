@@ -14,11 +14,17 @@ body {
 /* COMEÇO DO HEADER */
 
 .header {
+    position: fixed;
     display: flex;
-    height: 75px;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 35px 0px 56px;
+    height: 64px;
+    width: 100%;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-bottom: 1px solid rgb(229 231 235);
+    z-index: 3;
+    background-color: white;
 }
 
 .logo, img {
@@ -54,6 +60,9 @@ body {
 }
 
 .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 36px;
     height: 36px;
     background-color: rgba(46, 45, 55);
@@ -72,6 +81,7 @@ body {
     justify-content: center;
     width: 100%;
     height: 100%;
+    padding-top: 64px;
 }
 
 /* NAVBAR */
@@ -96,6 +106,8 @@ body {
 }
 
 .user-icon {
+    display: flex;
+    justify-content: center;
     width: 59px;
     height: 59px;
     border-radius: 50%;
