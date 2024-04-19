@@ -1,5 +1,4 @@
 <?php
-require '../vendor/autoload.php';
 include '../app/includes/config.php';
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar']))  {

@@ -1,5 +1,4 @@
 <?php
-require '../../vendor/autoload.php';
 include 'config.php';
     if(isset($_REQUEST['cadastrar'])){
 

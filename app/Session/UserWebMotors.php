@@ -12,8 +12,8 @@ class UserWebMotors{
     }
   
     /**
-     * @param string @email
-     * @param string @nome_completo
+     * @param string $email
+     * @param string $nome_completo
      */
     public static function login_webmotors($email, $nome_completo){
         self::init();

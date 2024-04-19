@@ -1,7 +1,5 @@
 <?php
 
-require '../vendor/autoload.php';
-
 include 'config.php';
 
 if($valor_pesquisa_formatado == 'Blindado') {

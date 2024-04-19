@@ -1,6 +1,5 @@
-
 <?php
-require '../vendor/autoload.php';
+include '../app/Session/UserWebMotors.php';
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
 if(isset($_REQUEST['search_button'])) {   

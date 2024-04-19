@@ -1,5 +1,4 @@
 <?php
-require '../vendor/autoload.php';
 include '../app/includes/config.php';
 
 $query = "SELECT * FROM anuncio WHERE anuncio_liberado = 'S';";
