@@ -14,9 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
         echo "<script>alert('Este email já existe, tente outro!');</script>";
     } else {
         $query = "INSERT INTO usuario (id, cpf, nome_completo, email, senha, genero, data_nascimento, telefone, cep, cidade, uf,
-        nivel, imagem_perfil) VALUES (null, null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, null, 'ADM');";
+        nivel) VALUES (null, null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, null, 'ADM');";
         $result = mysqli_query($con, $query);
     }
+    echo '<script>alert("Conta criada com sucesso! Por favor, faça o login!");window.location.href ="login.php";</script>';
 }
 
 ?>
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
 <body>
     <section class="header">
         <div class="logo">
-            <a href=""><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
         </div>
         <div class="buttons-header"></div>
         <div class="login-header">

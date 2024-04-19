@@ -6,7 +6,7 @@ if($valor_pesquisa_formatado == 'Blindado') {
     $valor_pesquisa_formatado = 'S';
     $colunas = ['blindado'];
 } else {
-    $colunas = ['id','marca', 'modelo', 'ano_lancamento','ano_fabricacao','versao','cor','blindado','km', 'descricao_inicial',
+    $colunas = ['marca', 'modelo', 'ano_lancamento','ano_fabricacao','versao','cor','blindado','km', 'descricao_inicial',
                 'descricao_completa', 'preco', 'anuncio_liberado', 'imagem_anuncio']; 
 }
 

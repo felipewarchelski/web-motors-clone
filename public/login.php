@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
             $hashedPassword = $row['senha'];
 
             if ($hashedPassword == $password) {
-                SessionUserWebMotors::login_webmotors($email, $row['nome_completo']);
+                SessionUserWebMotors::login_webmotors($email, $row['nome_completo'], $row['id']);
                 if (SessionUserWebMotors::isLogged()) {
                     header('Location: index.php');
                     exit(); 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
 <body>
     <section class="header">
         <div class="logo">
-            <a href=""><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
         </div>
         <div class="buttons-header"></div>
         <div class="login-header">
