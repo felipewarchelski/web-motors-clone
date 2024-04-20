@@ -102,10 +102,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
                     <label for="modelo" id="modeloLabel">Modelo*</label>
                     <select name="modelo" id="modeloSelect" disabled>
                         <option value="" disabled selected>Escolha um modelo</option>
-                        <option value="c70">c70</option>
-                        <option value="c80">c80</option>
-                        <option value="CX90">XC90</option>
-                        <option value="c150">c150</option>
+                        <option value="Uno">Uno</option>
+                        <option value="Onix">Onix</option>
+                        <option value="Silverado Edição LE">Silverado Edição LE</option>
+                        <option value="Fusion">Fusion</option>
+                        <option value="Civic">Civic</option>
+                        <option value="Corolla XRS">Corolla XRS</option>
+                        <option value="Frontier">Frontier</option>
+                        <option value="x60">x60</option>
                     </select>
                     <div class="ano-fabricacao-modelo">
                         <div class="ano">

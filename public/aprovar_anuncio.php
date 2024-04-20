@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/perfil.css">
+    <link rel="stylesheet" href="styles/aprovar_anuncio.css">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <title>Web Motors</title>
 </head>
@@ -171,52 +171,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
         </div>
 
         <div class="main-content">
-            <form method="POST">
-                <h1>Minha Conta</h1>
-                <div class="forms">
-                    <div class="form1">
-                        <h1>Meus dados</h1>
-                        <p>Campos com asterisco (*) são obrigatórios</p>
-                        <div class="mb-3">
-                            <?php echo  '<input type="email" name="email" class="form-control" placeholder="' . $info['email'] . '" required value="' . $info['email'] . '">'; ?>
-                        </div>
-                        <div class="mb-3">
-                            <?php echo  '<input type="text" name="nome" class="form-control" placeholder="' . $info['nome_completo'] . '" required value="' . $info['nome_completo'] . '">'; ?>
-                        </div>
-                        <select class="form-select mb-3" name="genero" aria-label="Default select example">
-                            <option selected required>Gênero</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                            <option value="Prefiro não responder">Prefiro não responder</option>
-                        </select>
-                        <div class="mb-3">
-                            <input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="cpf" placeholder="CPF" required>
-                        </div>
-                    </div>
-                    <div class="form2">
-                        <h1>Meus endereço e contato</h1>
-                        <p>Campos com asterisco (*) são obrigatórios</p>
-                        <div class="mb-3">
-                            <input type="text" name="cep" class="form-control" placeholder="CEP" required>
-                        </div>
-                        <div class="g-3 row">
-                            <div class="col">
-                                <input type="text" name="uf" class="form-control" placeholder="Estado" aria-label="Estado">
-                            </div>
-                            <div class="col">
-                                <input type="text" name="cidade" class="form-control" placeholder="Cidade" aria-label="Cidade">
-                            </div>
-                            <div class="mb-3">
-                                <input type="fone" name="telefone" class="form-control" placeholder="Telefone" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="button-submit">
-                    <button type="submit" name="salvar_alteracoes" class="btn btn-danger botao">Salvar Alterações</button>
+            <div class="content">
+                <h1>Anúncios Pendentes</h1>
+            </div>
+            <form action="" method="post">
+                <div class="main-cards">
+                    <?php
+                    include '../app/includes/gera_anuncio.php';
+
+                    $num_rows = count($tableData);
+
+                    $repetir = range(1, $num_rows);
+
+                    if (is_array($tableData) && !empty($tableData)) {
+                        foreach ($tableData as $dados) {
+                            echo '<div class="card" style="width: 14.8rem;">
+                                    <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
+                                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis;">' . $dados['descricao_inicial'] . '</p>
+                                        <h2>R$' . $dados['preco'] . '</h2>
+                                        <h3>' . $dados['ano_fabricacao'] . '/' . $dados['ano_lancamento'] . '</h3>
+                                        <div class="card-buttons">
+                                        <input type="submit" value="✔" name="aprovar" class="aprovar">
+                                        <input type="submit" value="✖" name="recusar" class="recusar">
+                                        </div>
+                                    </div>
+                                </div>';
+                        }
+                    } else {
+                        echo "Sem resultados para essa consulta!";
+                    }
+                    ?>
                 </div>
             </form>
         </div>

@@ -130,7 +130,7 @@ if (isset($_REQUEST['search_button'])) {
                                     <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
-                                        <p class="card-text" style="max-height: 3.6em; overflow: hidden; text-overflow: ellipsis;">' . $dados['descricao_inicial'] . '</p>
+                                        <p class="card-text" style="overflow: hidden; text-overflow: ellipsis;">' . $dados['descricao_inicial'] . '</p>
                                         <h2>R$' . $dados['preco'] . '</h2>
                                         <h3>' . $dados['ano_fabricacao'] . '/' . $dados['ano_lancamento'] . '</h3>
                                         <a href="#" class="btn btn-primary">Ver anúncio</a>

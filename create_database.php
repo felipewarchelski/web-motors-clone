@@ -163,11 +163,11 @@ button:hover {
     <form method="post" action="create_database.php">
         <div class="form-group">
             <label for="servername">Servidor e porta MySQL:</label>
-            <input type="text" id="servername" name="servername" required>
+            <input type="text" id="servername" name="servername" required placeholder="Localhost:3500">
         </div>
         <div class="form-group">
             <label for="username">Usuário MySQL:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required placeholder="root">
         </div>
         <div class="form-group">
             <label for="password">Senha MySQL:</label>
