@@ -172,10 +172,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
                                             <div class="card-buttons">
                                             <form action="" method="post">
                                             <input type="hidden" name="id_veiculo" value="' . $id_veiculo . '">
-                                                <input type="submit" value="✔" name="aprovar" class="aprovar">
+                                                <input type="submit" value="✔" name="aprovar" class="aprovar" onclick="confirmarAprovacao(event)">
                                             </form><form action="" method="post">
                                             <input type="hidden" name="id_veiculo" value="' . $id_veiculo . '">
-                                            <input type="submit" value="✖" name="recusar" class="recusar">
+                                            <input type="submit" value="✖" name="recusar" class="recusar" onclick="confirmarExclusao(event)">
                                             </form>
                                             </div>
                                         </div>
