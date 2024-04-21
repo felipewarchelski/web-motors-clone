@@ -193,3 +193,9 @@ body {
     color: #7d7c82;
     color: rgb(174, 174, 186);
 }
+
+.div-button-submit {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}

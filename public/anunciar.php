@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     $descricao_inicial = $_POST['descricao_inicial'];
     $descricao_completa = $_POST['descricao_completa'];
     $preco = $_POST['preco'];
-    $anuncio_liberado = "S";
+    $anuncio_liberado = "N";
 
     if (isset($_POST['blindado'])) {
         $blindado = "S";
@@ -148,9 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
                         <p>Blindado</p>
                     </div>
                     <label for="km" id="" >Quilometragem(KM)*</label>
-                    <input type="number" name="km" id="" placeholder="Digite a quilometragem do seu veículo" required>
+                    <input type="text" name="km" id="" maxlength="7" oninput="formatarPreco(this)" placeholder="Digite a quilometragem do seu veículo" required>
                     <label for="descricaoinical" id="">Descrição Inicial*(máx 40)</label>
-                    <input type="text" name="descricao_inicial" id="" maxlength="40" placeholder="Conte brevemente sobre seu veículo" required>
+                    <input type="text" name="descricao_inicial" id="" maxlength="30" placeholder="Conte brevemente sobre seu veículo" required>
                     <label for="descricaocompleta" id="">Descrição Completa</label>
                     <textarea id="descricao" name="descricao_completa" maxlength="500" placeholder="Nos conte com detalhes sobre seu veículo" required></textarea>
                     <label for="preco" id="" >Preço</label>

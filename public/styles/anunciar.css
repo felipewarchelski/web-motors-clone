@@ -282,6 +282,8 @@ body {
     border-radius: 8px;
     color: white;
     text-decoration: none;
+    border: none;
+    outline: none;
 }
 
 .continuar-container input[type="submit"] {

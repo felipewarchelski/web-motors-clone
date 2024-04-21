@@ -252,6 +252,10 @@ body {
     border: none;
 }
 
+.card a:hover {
+    background-color: #f3123c;
+}
+
 .card-body h5,
 .card-body p {
     height: 50px;
