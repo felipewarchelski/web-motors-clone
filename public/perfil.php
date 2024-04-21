@@ -49,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                                         uf = '$uf' 
                                         WHERE id = '$id'";
 
-        echo $query;
         $result = mysqli_query($con, $query);
     }
     echo '<script>alert("Dados atualizados com sucesso!");window.location.href ="perfil.php";</script>';
@@ -72,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
 </head>
 
 <body>
-    <script src="js/main.js"></script>
     <section class="header">
         <div class="logo">
             <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
@@ -112,14 +110,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                     Vender meu veículo</a>
                 <?php
                 $info_user = SessionUserWebMotors::getInfo();
-                if ($info_user['nivel'] == 'ADM') {
-                    echo '<a href="aprovar_anuncio.php">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16" color="#202020">
+                    if($info_user['nivel'] == 'ADM') {
+                         echo '<a href="aprovar_anuncio.php">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="22" fill="currentColor" class="bi bi-bookmark-check" viewBox="0 0 16 16" color="#202020">
                              <path fill-rule="evenodd" d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0" />
                              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
                          </svg>
                          Aprovar anúncios</a>';
-                }
+                 }
                 ?>
                 <a href="meus_anuncios.php">
                     <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.127 14.207c0 .578.473 1.05 1.05 1.05a1.04 1.04 0 001.052-1.05v-.662c.493-.41.956-.904 1.46-1.576l.137-.18c.83-1.05 1.072-2.405.64-3.54-.346-.893-1.008-1.598-1.86-1.955A3.516 3.516 0 0012.179 6 3.682 3.682 0 008.5 9.678c0 .578.473 1.05 1.05 1.05.579 0 1.052-.472 1.052-1.05a1.58 1.58 0 011.576-1.576c.21 0 .42.042.61.126.314.136.567.41.703.767.179.452.053 1.03-.336 1.523l-.147.2c-.4.546-.767.935-1.135 1.23-.2.158-.746.588-.746 1.355v.904zm2.038 2.805a.988.988 0 11-1.975 0 .988.988 0 011.976 0zM12.002 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-18c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10z" fill="#2E2D37"></path>
                     </svg>
                     Ajuda</a>
-                <a href="#" onclick="confirmLogout(event)">
+                <a href="../app/includes/logout.php">
                     <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.253 12.38c.05-.12.08-.25.08-.38a.995.995 0 00-.3-.7l-2.72-2.72a.996.996 0 10-1.41 1.41l1.02 1.01h-4.59c-.55 0-1 .45-1 1s.45 1 1 1h4.59l-1.02 1.02a.996.996 0 00.71 1.7c.26 0 .51-.1.71-.29l2.72-2.72c.09-.09.16-.2.21-.33z" fill="#2E2D37"></path>
                         <path d="M18.333 16c-.55 0-1 .45-1 1v2c0 .55-.45 1-1 1h-9c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v1.99c0 .56.45 1.01 1.01 1.01.55 0 .99-.44.99-.99V5c0-1.66-1.34-3-3-3h-9c-1.66 0-3 1.34-3 3v14c0 1.66 1.34 3 3 3h9c1.66 0 3-1.34 3-3v-2c0-.55-.45-1-1-1z" fill="#2E2D37"></path>
@@ -184,41 +182,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                         <div class="mb-3">
                             <?php echo  '<input type="text" name="nome" class="form-control" placeholder="Nome Completo" required value="' . $info['nome_completo'] . '">'; ?>
                         </div>
-                        <select class="form-select mb-3" name="genero" aria-label="Default select example">
-                            <option selected required>Gênero</option>
+                         <select class="form-select mb-3" name="genero" aria-label="Default select example" required>
+                            <?php
+                            if(empty($info['genero'])){
+                                echo '<option selected disabled>Gênero</option>';
+                            } else {
+                                echo '<option selected disabled>' . $info['genero'] . '</option>'; 
+                            }
+                            ?>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                             <option value="Prefiro não responder">Prefiro não responder</option>
                         </select>
                         <div class="mb-3">
-                            <input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" required>
+                            <?php echo  '<input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" value="' . $info['data_nascimento'] . '"required>';?>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="cpf" placeholder="CPF" maxlength="14" oninput="formatarPreco(this)" required>
-                            <script>
-                                function formatarPreco(input) {
-                                    let valor = input.value.replace(/\D/g, '');
-                                    valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                                    input.value = valor;
-                                }
-                            </script>
+                            <?php echo  '<input type="text" class="form-control" name="cpf" placeholder="CPF" value="' . $info['cpf'] . '" required>';?>
                         </div>
                     </div>
                     <div class="form2">
                         <h1>Meus endereço e contato</h1>
                         <p>Campos com asterisco (*) são obrigatórios</p>
                         <div class="mb-3">
-                            <input type="text" name="cep" class="form-control" placeholder="CEP" required>
+                            <?php echo  '<input type="text" name="cep" class="form-control" placeholder="CEP" value="' . $info['cep'] . '"required>';?>
                         </div>
                         <div class="g-3 row">
                             <div class="col">
-                                <input type="text" name="uf" class="form-control" placeholder="Estado" aria-label="Estado">
+                                <?php echo  '<input type="text" name="uf" class="form-control" placeholder="Estado" value="'. $info['uf'] . '" aria-label="Estado">';?>
                             </div>
                             <div class="col">
-                                <input type="text" name="cidade" class="form-control" placeholder="Cidade" aria-label="Cidade">
+                                <?php echo  '<input type="text" name="cidade" class="form-control" placeholder="Cidade" value="'. $info['cidade'] . '" aria-label="Cidade">';?>
                             </div>
                             <div class="mb-3">
-                                <input type="fone" name="telefone" class="form-control" placeholder="Telefone" required>
+                                <?php echo  '<input type="fone" name="telefone" class="form-control" placeholder="Telefone" value="' . $info['telefone'] . '"required>';?>
                             </div>
                         </div>
                     </div>
