@@ -21,21 +21,19 @@ if (is_array($tableData) && !empty($tableData)) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
     $id_veiculo = $_POST['id_veiculo'];
-    
-    
+
+
     $query = "UPDATE anuncio SET anuncio_liberado = 'S' WHERE id = '$id_veiculo'";
     $result = mysqli_query($con, $query);
 
-    header ('Location: aprovar_anuncio.php');
-    
-} elseif($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recusar'])){
+    header('Location: aprovar_anuncio.php');
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['recusar'])) {
     $id_veiculo = $_POST['id_veiculo'];
 
     $query = "DELETE FROM anuncio WHERE id = '$id_veiculo'";
     $result = mysqli_query($con, $query);
 
-    header ('Location: aprovar_anuncio.php');
-    
+    header('Location: aprovar_anuncio.php');
 }
 
 
@@ -55,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
 </head>
 
 <body>
+    <script src="js/main.js"></script>
     <section class="header">
         <div class="logo">
             <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
@@ -98,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
                     </svg>
                     Aprovar anúncios</a>
-                    <a href="meus_anuncios.php">
+                <a href="meus_anuncios.php">
                     <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M13.399 19c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zm8-3h-4.142c-.447-1.72-2-3-3.858-3s-3.411 1.28-3.858 3H4.399v-2h2a1 1 0 000-2h-2v-1.144l2.31-.361c1.907-.298 3.712-1.253 5.277-2.817C13.076 6.611 14.64 6 16.275 6h5.124a1 1 0 000-2h-5.124c-2.185 0-4.204.798-5.687 2.247l-.071.071C9.309 7.526 7.886 8.287 6.4 8.519l-3.156.493a1 1 0 00-.846.988v7a1 1 0 001 1H9.54c.447 1.72 2 3 3.858 3s3.41-1.28 3.858-3h4.142a1 1 0 000-2z" fill="#2E2D37"></path>
                     </svg>
@@ -139,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.127 14.207c0 .578.473 1.05 1.05 1.05a1.04 1.04 0 001.052-1.05v-.662c.493-.41.956-.904 1.46-1.576l.137-.18c.83-1.05 1.072-2.405.64-3.54-.346-.893-1.008-1.598-1.86-1.955A3.516 3.516 0 0012.179 6 3.682 3.682 0 008.5 9.678c0 .578.473 1.05 1.05 1.05.579 0 1.052-.472 1.052-1.05a1.58 1.58 0 011.576-1.576c.21 0 .42.042.61.126.314.136.567.41.703.767.179.452.053 1.03-.336 1.523l-.147.2c-.4.546-.767.935-1.135 1.23-.2.158-.746.588-.746 1.355v.904zm2.038 2.805a.988.988 0 11-1.975 0 .988.988 0 011.976 0zM12.002 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm0-18c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10z" fill="#2E2D37"></path>
                     </svg>
                     Ajuda</a>
-                <a href="../app/includes/logout.php">
+                <a href="#" onclick="confirmLogout(event)">
                     <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20.253 12.38c.05-.12.08-.25.08-.38a.995.995 0 00-.3-.7l-2.72-2.72a.996.996 0 10-1.41 1.41l1.02 1.01h-4.59c-.55 0-1 .45-1 1s.45 1 1 1h4.59l-1.02 1.02a.996.996 0 00.71 1.7c.26 0 .51-.1.71-.29l2.72-2.72c.09-.09.16-.2.21-.33z" fill="#2E2D37"></path>
                         <path d="M18.333 16c-.55 0-1 .45-1 1v2c0 .55-.45 1-1 1h-9c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v1.99c0 .56.45 1.01 1.01 1.01.55 0 .99-.44.99-.99V5c0-1.66-1.34-3-3-3h-9c-1.66 0-3 1.34-3 3v14c0 1.66 1.34 3 3 3h9c1.66 0 3-1.34 3-3v-2c0-.55-.45-1-1-1z" fill="#2E2D37"></path>
@@ -161,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
 
                     if (is_array($tableData) && !empty($tableData)) {
                         foreach ($tableData as $dados) {
-                            if ($dados['anuncio_liberado'] == "N"){
+                            if ($dados['anuncio_liberado'] == "N") {
                                 $id_veiculo = $dados['id'];
                                 echo '<div class="card" style="width: 14.8rem;">
                                         <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
@@ -181,9 +180,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
                                             </div>
                                         </div>
                                     </div>';
-                            } 
-                        } 
-                    } 
+                            }
+                        }
+                    }
                     ?>
                 </div>
             </form>
