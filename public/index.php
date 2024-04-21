@@ -1,22 +1,23 @@
 <?php
 include '../app/Session/UserWebMotors.php';
+
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
-if(isset($_REQUEST['search_button'])) {   
-    if($_REQUEST['searchbar'] != '' ){
+if (isset($_REQUEST['search_button'])) {
+    if ($_REQUEST['searchbar'] != '') {
         $searchbar = $_REQUEST['searchbar'];
 
         include '../app/includes/pesquisar_veiculos.php';
-
-   } else {
+    } else {
         header("Location: {$_SERVER['PHP_SELF']}");
-        exit(); 
-   }
+        exit();
+    }
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,7 @@ if(isset($_REQUEST['search_button'])) {
     <title>Web Motors</title>
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
+
 <body>
     <section class="header">
         <div class="logo">
@@ -43,17 +45,17 @@ if(isset($_REQUEST['search_button'])) {
                 <?php
 
                 $info_user_webmotors = SessionUserWebMotors::getInfo();
-                
+
                 if (SessionUserWebMotors::isLogged()) {
-                    
-                    if (SessionUserWebMotors::getInfo() != null) {
-                        if (SessionUserWebMotors::isLogged()) {
-                            echo  $info_user_webmotors['nome_completo'] ;
-                        } 
+                    if ($info_user_webmotors != null) {
+                        $nome_completo = $info_user_webmotors['nome_completo'];
+                        $nome_formatado = ucwords(strtolower($nome_completo)); // Converte para primeira letra maiúscula
+                        echo $nome_formatado;
                     }
                 } else {
                     echo "Entrar";
                 }
+
                 ?>
             </a>
             <a href="">
@@ -83,7 +85,9 @@ if(isset($_REQUEST['search_button'])) {
                 <div class="right-header">
                     <form action="index.php" method="GET">
                         <input type="text" name="pesquisa" id="pesquisa" placeholder="Digite marca ou modelo do carro">
-                        <? if (isset($_GET['pesquisa'])) { $pesquisa = $_GET['pesquisa'];} ?>     
+                        <? if (isset($_GET['pesquisa'])) {
+                            $pesquisa = $_GET['pesquisa'];
+                        } ?>
                     </form>
                     <a href=""><img src="../imgs/search.png" alt="" width="18px" class="search-icon"></a>
                     <img src="../imgs/view-list.png" alt="" width="20px" class="view-list">
@@ -92,12 +96,13 @@ if(isset($_REQUEST['search_button'])) {
                 </div>
             </div>
             <div class="content">
-                <h3>Home > <n>Carros</n></h3>
+                <h3>Home > <n>Carros</n>
+                </h3>
                 <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
                 <h6>352.377 carros encontrados</h6>
                 <div class="main-cards">
                     <!-- INÍCIO DO PHP PARA IMPRIMIR O ANÚNCIO NA TELA -->
-                    
+
                     <?php
                     include '../app/includes/gera_anuncio.php';
 
@@ -111,16 +116,17 @@ if(isset($_REQUEST['search_button'])) {
                     $query_string = http_build_query($params);
                     $url = 'index.php?' . $query_string;
 
-                    if($url != 'index.php?pesquisa=') {
-                        include '../app/includes/pesquisar_veiculos.php';   
+                    if ($url != 'index.php?pesquisa=') {
+                        include '../app/includes/pesquisar_veiculos.php';
                     }
-                    
+
                     $num_rows = count($tableData);
 
                     $repetir = range(1, $num_rows);
 
                     if (is_array($tableData) && !empty($tableData)) {
                         foreach ($tableData as $dados) {
+                            if ($dados['anuncio_liberado'] == "S" ){
                             echo '<div class="card" style="width: 14.8rem;">
                                     <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -131,6 +137,7 @@ if(isset($_REQUEST['search_button'])) {
                                         <a href="#" class="btn btn-primary">Ver anúncio</a>
                                     </div>
                                 </div>';
+                            }
                         }
                     } else {
                         echo "Sem resultados para essa consulta!";
@@ -142,4 +149,5 @@ if(isset($_REQUEST['search_button'])) {
         </div>
     </section>
 </body>
+
 </html>
