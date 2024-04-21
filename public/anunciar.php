@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     $descricao_inicial = $_POST['descricao_inicial'];
     $descricao_completa = $_POST['descricao_completa'];
     $preco = $_POST['preco'];
-    $anuncio_liberado = "S";
+    $anuncio_liberado = "N";
 
     if (isset($_POST['blindado'])) {
         $blindado = "S";
