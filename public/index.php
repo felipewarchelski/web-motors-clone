@@ -126,6 +126,7 @@ if (isset($_REQUEST['search_button'])) {
 
                     if (is_array($tableData) && !empty($tableData)) {
                         foreach ($tableData as $dados) {
+                            if ($dados['anuncio_liberado'] == "S" ){
                             echo '<div class="card" style="width: 14.8rem;">
                                     <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -136,6 +137,7 @@ if (isset($_REQUEST['search_button'])) {
                                         <a href="#" class="btn btn-primary">Ver anúncio</a>
                                     </div>
                                 </div>';
+                            }
                         }
                     } else {
                         echo "Sem resultados para essa consulta!";

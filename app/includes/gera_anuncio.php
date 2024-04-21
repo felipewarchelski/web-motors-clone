@@ -1,7 +1,7 @@
 <?php
 include '../app/includes/config.php';
 
-$query = "SELECT * FROM anuncio WHERE anuncio_liberado = 'S';";
+$query = "SELECT * FROM anuncio";
 $result = mysqli_query($con, $query);
 
 

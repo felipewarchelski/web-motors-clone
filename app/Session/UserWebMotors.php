@@ -10,18 +10,35 @@ class UserWebMotors{
         session_status() !== PHP_SESSION_ACTIVE ? session_start() : true; 
           
     }
+    /**
+    * @param string $email
+    */
+    public static function login($email){
+        self::init() ;
+
+        $_SESSION['login'] = [
+            'email' => $email
+        ];
+    }
   
     /**
-     * @param string $email
-     * @param string $nome_completo
+     * @param array
      */
-    public static function login_webmotors($email, $nome_completo, $id){
+    public static function setDados( $id, $cpf, $nome, $email, $genero, $data_nascimento,  $telefone, $cep, $cidade, $uf, $nivel ){
         self::init();
         
         $_SESSION['user_webmotors'] = [
+            'id'=> $id,
+            'cpf' => $cpf,
+            'nome_completo' => $nome,
             'email' => $email,
-            'nome_completo'  => $nome_completo,
-            'id' => $id
+            'genero' => $genero,
+            'data_nascimento' => $data_nascimento,
+            'telefone' => $telefone,
+            'cep' => $cep,
+            'cidade' => $cidade,
+            'uf' => $uf,
+            'nivel' => $nivel
         ];
     }
     /**
@@ -30,7 +47,7 @@ class UserWebMotors{
     public static function isLogged(){
         self::init();
 
-        return isset($_SESSION['user_webmotors']);
+        return isset($_SESSION['login']);
     }
 
     /**
@@ -45,9 +62,10 @@ class UserWebMotors{
     public static function logout(){
         self::init();
 
-        unset($_SESSION['user_webmotors']);
+        unset($_SESSION['login']);
         echo '<script>alert("Você saiu da sua conta!");window.location.href ="../../public/index.php";</script>';
     }
     
 }
+
 ?>

@@ -16,7 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
             $hashedPassword = $row['senha'];
 
             if ($hashedPassword == $password) {
-                SessionUserWebMotors::login_webmotors($email, $row['nome_completo'], $row['id']);
+                $id = $row['id'];
+                include '../app/includes/set_dados_usuario.php';
+                SessionUserWebMotors::login($email);
                 if (SessionUserWebMotors::isLogged()) {
                     header('Location: index.php');
                     exit(); 

@@ -8,11 +8,12 @@ if(!SessionUserWebMotors::isLogged()){
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
         
-    if(isset($_FILES['imagens'])){
-            echo "Tem imagem";
-        } else{
-            echo "Sem imagem";
-        }
+    $info_user = SessionUserWebMotors::getInfo();
+
+    $id_usuario = $info_user['id'];
+
+    echo $id_usuario;
+
     $imagens = $_FILES['imagens'];
 
     move_uploaded_file($imagens['tmp_name'], '../imgs/anuncio/' . $imagens['name']);
@@ -37,20 +38,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     }
 
     $query = "INSERT INTO anuncio (marca, modelo, ano_lancamento, ano_fabricacao, versao, cor, blindado, km, descricao_inicial, descricao_completa,
-                                  preco, anuncio_liberado,imagem_anuncio) VALUES ('$marca', '$modelo', '$ano_lancamento', 
+                                  preco, anuncio_liberado,imagem_anuncio, id_usuario) VALUES ('$marca', '$modelo', '$ano_lancamento', 
                                   '$ano_fabricacao', '$versao', '$cor', '$blindado', '$km', '$descricao_inicial', '$descricao_completa', '$preco', 
-                                  '$anuncio_liberado', '$endereco_imagem');";
+                                  '$anuncio_liberado', '$endereco_imagem', '$id_usuario');";
 
     $result = mysqli_query($con, $query);
 
     if ($result) {
-        echo "Anunciado!";
+        echo '<script>alert("Veículo anunciado com sucesso!");window.location.href ="meus_anuncios.php";</script>';
     } else {
-        echo "Erro ao anunciar: " . mysqli_error($con);
+        echo '<script>alert("Não foi possível cadastrar o veículo. Por favor, verifique os dados tente novamente!");</script>';
     }
-
-
-
 }
 
 ?>

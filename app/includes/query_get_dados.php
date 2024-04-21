@@ -1,6 +1,4 @@
 <?php
-include 'config.php';
-
 $query = "SELECT * FROM usuario WHERE id = '$id'";
 $result = mysqli_query($con, $query);
 
@@ -12,4 +10,5 @@ $result = mysqli_query($con, $query);
     } else {
         echo "Sem resultados para essa consulta! ";
     }
+
 ?>

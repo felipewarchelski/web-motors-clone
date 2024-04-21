@@ -193,15 +193,3 @@ body {
     color: #7d7c82;
     color: rgb(174, 174, 186);
 }
-
-.form1 input:focus {
-    box-shadow: none;
-    border-color: black;
-}
-
-.button-submit {
-    display: flex;
-    justify-content: right;
-}
-
-
