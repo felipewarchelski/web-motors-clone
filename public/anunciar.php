@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     $descricao_inicial = $_POST['descricao_inicial'];
     $descricao_completa = $_POST['descricao_completa'];
     $preco = $_POST['preco'];
-    $anuncio_liberado = "S";
+    $anuncio_liberado = "N";
 
     if (isset($_POST['blindado'])) {
         $blindado = "S";
@@ -100,10 +100,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
                     <label for="modelo" id="modeloLabel">Modelo*</label>
                     <select name="modelo" id="modeloSelect" disabled>
                         <option value="" disabled selected>Escolha um modelo</option>
-                        <option value="c70">c70</option>
-                        <option value="c80">c80</option>
-                        <option value="CX90">XC90</option>
-                        <option value="c150">c150</option>
+                        <option value="Uno">Uno</option>
+                        <option value="Onix">Onix</option>
+                        <option value="Silverado Edição LE">Silverado Edição LE</option>
+                        <option value="Fusion">Fusion</option>
+                        <option value="Civic">Civic</option>
+                        <option value="Corolla XRS">Corolla XRS</option>
+                        <option value="Frontier">Frontier</option>
+                        <option value="x60">x60</option>
                     </select>
                     <div class="ano-fabricacao-modelo">
                         <div class="ano">
@@ -144,9 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
                         <p>Blindado</p>
                     </div>
                     <label for="km" id="" >Quilometragem(KM)*</label>
-                    <input type="number" name="km" id="" placeholder="Digite a quilometragem do seu veículo" required>
+                    <input type="text" name="km" id="" maxlength="7" oninput="formatarPreco(this)" placeholder="Digite a quilometragem do seu veículo" required>
                     <label for="descricaoinical" id="">Descrição Inicial*(máx 40)</label>
-                    <input type="text" name="descricao_inicial" id="" maxlength="40" placeholder="Conte brevemente sobre seu veículo" required>
+                    <input type="text" name="descricao_inicial" id="" maxlength="30" placeholder="Conte brevemente sobre seu veículo" required>
                     <label for="descricaocompleta" id="">Descrição Completa</label>
                     <textarea id="descricao" name="descricao_completa" maxlength="500" placeholder="Nos conte com detalhes sobre seu veículo" required></textarea>
                     <label for="preco" id="" >Preço</label>

@@ -252,6 +252,25 @@ body {
     border: none;
 }
 
+.card a:hover {
+    background-color: #f3123c;
+}
+
+.card-body h5,
+.card-body p {
+    height: 50px;
+}
+
+
+.card-body h5 {
+    font-size: 18px;
+    letter-spacing: 0px;
+}
+
+.card-body h2 {
+    font-size: 25px;
+}
+
 
 
 /* COMEÇO WEBKIT */
