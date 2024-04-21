@@ -12,3 +12,24 @@ function confirmLogout(event) {
 }
 
 //FIM CONFIRM LOGOUT
+
+//CONFIRM EXCLUIR/APROVAR ANUNCIO
+
+function confirmarExclusao(event) {
+    var confirmar = confirm("Tem certeza de que deseja excluir este anúncio?");
+
+    if (!confirmar) {
+        event.preventDefault();
+    }
+}
+
+function confirmarAprovacao(event) {
+    var confirmar = confirm("Tem certeza de que deseja aprovar este anúncio?");
+
+    if (!confirmar) {
+        event.preventDefault();
+    }
+}
+
+//FIM CONFIRM EXCLUIR/APROVAR ANUNCIO
+

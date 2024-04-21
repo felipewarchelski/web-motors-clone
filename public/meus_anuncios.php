@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
                                             <a href="index.php">Ver anúncio</a>
                                             <form action="" method="post" class="card-buttons">
                                             <input type="hidden" name="id_veiculo" value="' . $id_veiculo . '">
-                                            <input type="submit" value="Excluir" name="excluir" class="excluir">
+                                            <input type="submit" value="Excluir" name="excluir" class="excluir" onclick="confirmarExclusao(event)">
                                             </form>
                                             </div>
                                         </div>
