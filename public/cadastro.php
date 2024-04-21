@@ -1,24 +1,24 @@
 <?php
-require '../vendor/autoload.php';
 include '../app/includes/config.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar']))  {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
 
-        $nome_completo = $_POST['nome_completo'];
-        $email = $_POST['email'];
-        $password = md5($_POST['password']);
+    $nome_completo = $_POST['nome_completo'];
+    $email = $_POST['email'];
+    $password = md5($_POST['password']);
 
+    $check_email_exists = "SELECT * FROM usuario WHERE email = '$email'";
+    $result_check = mysqli_query($con, $check_email_exists);
+
+    if (mysqli_num_rows($result_check) > 0) {
+        echo "<script>alert('Este email já existe, tente outro!');</script>";
+    } else {
         $query = "INSERT INTO usuario (id, cpf, nome_completo, email, senha, genero, data_nascimento, telefone, cep, cidade, uf,
-        nivel, imagem_perfil) VALUES (null, null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, null, 'ADM');";
-
+        nivel) VALUES (null, null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, null, 'ADM');";
         $result = mysqli_query($con, $query);
-
-        if ($result) {
-            echo "Cadastro bem-sucedido";
-        } else {
-            echo "Erro ao cadastrar usuário: " . mysqli_error($con);
-        }
     }
+    echo '<script>alert("Conta criada com sucesso! Por favor, faça o login!");window.location.href ="login.php";</script>';
+}
 
 ?>
 
@@ -37,7 +37,7 @@ include '../app/includes/config.php';
 <body>
     <section class="header">
         <div class="logo">
-            <a href=""><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
         </div>
         <div class="buttons-header"></div>
         <div class="login-header">
@@ -61,24 +61,7 @@ include '../app/includes/config.php';
                 <div class="left-box-socials">
                     <h2>Cadastre-se com suas redes sociais</h2>
                     <button class="facebook"><img src="../imgs/facebook.svg" alt="">Continuar com Facebook</button>
-                    <!-- BOTÂO GOOGLE-->
-                    <script src="https://accounts.google.com/gsi/client" async></script>
-                    <div id="g_id_onload"
-                        data-client_id="267853270306-ov6nhrnjltbpfcns91piokm37aenvu4a.apps.googleusercontent.com"
-                        data-login_uri="http://localhost/web-motors-clone/app/includes/login_google.php"
-                        data-auto_prompt="false">
-                    </div>
-                    <div class="d-flex justify-content-center"> 
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-size="large"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-shape="rectangular"
-                            data-logo_alignment="left">
-                        </div>
-                    </div>
-                    <!-- BOTÂO GOOGLE-->
+                    <button class="google"><img src="../imgs/google.svg" alt="">Continuar com Facebook</button>
                     <button class="apple"><img src="../imgs/apple.svg" alt="">Continuar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>

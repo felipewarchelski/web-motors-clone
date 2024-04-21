@@ -1,6 +1,6 @@
 <?php
-require '../vendor/autoload.php';
 include '../app/includes/config.php';
+include '../app/Session/UserWebMotors.php';
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
@@ -16,7 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
             $hashedPassword = $row['senha'];
 
             if ($hashedPassword == $password) {
-                SessionUserWebMotors::login_webmotors($email, $row['nome_completo']);
+                $id = $row['id'];
+                include '../app/includes/set_dados_usuario.php';
+                SessionUserWebMotors::login($email);
                 if (SessionUserWebMotors::isLogged()) {
                     header('Location: index.php');
                     exit(); 
@@ -41,14 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/login.css">
-    <title>Login</title>]
+    <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>
     <section class="header">
         <div class="logo">
-            <a href=""><img src="../imgs/webmotors-logo-8.png" alt=""></a>
+            <a href="index.php"><img src="../imgs/webmotors-logo-8.png" alt=""></a>
         </div>
         <div class="buttons-header"></div>
         <div class="login-header">
@@ -72,24 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['botao_entrar'])) {
                 <div class="left-box-socials">
                     <h2>Entre com suas redes sociais</h2>
                     <button class="facebook"><img src="../imgs/facebook.svg" alt="">Entrar com Facebook</button>
-                    <!-- BOTÂO GOOGLE-->
-                    <script src="https://accounts.google.com/gsi/client" async></script>
-                    <div id="g_id_onload"
-                        data-client_id="267853270306-ov6nhrnjltbpfcns91piokm37aenvu4a.apps.googleusercontent.com"
-                        data-login_uri="http://localhost/web-motors-clone/app/includes/login_google.php"
-                        data-auto_prompt="false">
-                    </div>
-                    <div class="d-flex justify-content-center"> 
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-size="large"
-                            data-theme="outline"
-                            data-text="sign_in_with"
-                            data-shape="rectangular"
-                            data-logo_alignment="left">
-                        </div>
-                    </div>
-                    <!-- BOTÂO GOOGLE-->
+                    <button class="google"><img src="../imgs/google.svg" alt="">Continuar com Facebook</button>
                     <button class="apple"><img src="../imgs/apple.svg" alt="">Entrar com Apple</button>
                 </div>
                 <div class="mid-line-login"></div>
