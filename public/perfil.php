@@ -32,26 +32,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
     $check_cpf_exists = "SELECT * FROM usuario WHERE cpf = '$cpf'";
     $result_cpf_check = mysqli_query($con, $check_cpf_exists);
 
-    if (mysqli_num_rows($result_email_check) > 0) {
-        echo "<script>alert('Este email já existe, tente outro!');</script>";
-    } elseif (mysqli_num_rows($result_cpf_check) > 0) {
-        echo "<script>alert('Este CPF já está cadastrado, tente outro!');</script>";
-    } else {
-        $query = "UPDATE usuario SET 
-                                        nome_completo = '$nome_completo',
-                                        email = '$email',
-                                        genero = '$genero',
-                                        data_nascimento = '$data_nascimento',
-                                        cpf = '$cpf',
-                                        telefone = '$telefone',
-                                        cep = '$cep',
-                                        cidade = '$cidade',
-                                        uf = '$uf' 
-                                        WHERE id = '$id'";
+    $query = "UPDATE usuario SET 
+                                    nome_completo = '$nome_completo',
+                                    email = '$email',
+                                    genero = '$genero',
+                                    data_nascimento = '$data_nascimento',
+                                    cpf = '$cpf',
+                                    telefone = '$telefone',
+                                    cep = '$cep',
+                                    cidade = '$cidade',
+                                    uf = '$uf' 
+                                    WHERE id = '$id'";
 
-        $result = mysqli_query($con, $query);
-    }
-    echo '<script>alert("Dados atualizados com sucesso!");window.location.href ="perfil.php";</script>';
+    $result = mysqli_query($con, $query);
+    include '../app/includes/query_get_dados.php';
+    echo '<script>alert("Dados atualizados com sucesso!"); window.location.href ="perfil.php";</script>';
+
 }
 
 
@@ -67,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/perfil.css">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
+    <script src="js/main.js"></script>
     <title>Web Motors</title>
 </head>
 
@@ -185,9 +182,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                          <select class="form-select mb-3" name="genero" aria-label="Default select example" required>
                             <?php
                             if(empty($info['genero'])){
-                                echo '<option selected disabled>Gênero</option>';
+                                echo '<option selected disabled required>Gênero</option>';
                             } else {
-                                echo '<option selected disabled>' . $info['genero'] . '</option>'; 
+                                echo '<option selected required>' . $info['genero'] . '</option>'; 
                             }
                             ?>
                             <option value="Masculino">Masculino</option>
@@ -198,14 +195,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                             <?php echo  '<input type="date" name="data_nascimento" class="form-control" placeholder="Data de Nascimento" value="' . $info['data_nascimento'] . '"required>';?>
                         </div>
                         <div class="mb-3">
-                            <?php echo  '<input type="text" class="form-control" name="cpf" placeholder="CPF" value="' . $info['cpf'] . '" required>';?>
+                            <?php echo  '<input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" oninput="formatarCPF(this)" value="' . $info['cpf'] . '" required> <script>formatarCPF();</script>';?>
                         </div>
                     </div>
                     <div class="form2">
                         <h1>Meus endereço e contato</h1>
                         <p>Campos com asterisco (*) são obrigatórios</p>
                         <div class="mb-3">
-                            <?php echo  '<input type="text" name="cep" class="form-control" placeholder="CEP" value="' . $info['cep'] . '"required>';?>
+                            <?php echo  '<input type="text" name="cep" class="form-control" oninput="formatarCEP(this)" placeholder="CEP" value="' . $info['cep'] . '"required>';?>
+                            <script>formatarCEP();</script>
                         </div>
                         <div class="g-3 row">
                             <div class="col">
@@ -215,7 +213,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
                                 <?php echo  '<input type="text" name="cidade" class="form-control" placeholder="Cidade" value="'. $info['cidade'] . '" aria-label="Cidade">';?>
                             </div>
                             <div class="mb-3">
-                                <?php echo  '<input type="fone" name="telefone" class="form-control" placeholder="Telefone" value="' . $info['telefone'] . '"required>';?>
+                                <?php echo  '<input type="fone" name="telefone" class="form-control" oninput="formatarTelefone(this)" placeholder="Telefone" value="' . $info['telefone'] . '"required>';?>
+                                <script>formatarTelefone();</script>
                             </div>
                         </div>
                     </div>

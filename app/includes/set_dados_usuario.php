@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-include '../Session/UserWebMotors.php';
+include_once '../app/Session/UserWebMotors.php';
 use App\Session\UserWebMotors as SessionUserWebMotors;
 
 $query = "SELECT * FROM usuario WHERE id = '$id'";
