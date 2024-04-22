@@ -35,7 +35,6 @@ if(isset($_POST['submit'])) {
         cidade VARCHAR(20),
         uf VARCHAR(2),
         nivel VARCHAR(3),
-        imagem_perfil VARCHAR(100)
     )";
 
     if ($conn->query($sql) === TRUE) {
