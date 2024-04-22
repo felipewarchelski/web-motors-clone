@@ -19,7 +19,10 @@ if (is_array($tableData) && !empty($tableData)) {
     }
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
+    $endereco_imagem = $dados['imagem_anuncio'];
+    unlink($endereco_imagem);
     $id_veiculo = $_POST['id_veiculo'];
 
     $query = "DELETE FROM anuncio WHERE id = '$id_veiculo'";
