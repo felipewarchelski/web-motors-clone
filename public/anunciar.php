@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     <link rel="stylesheet" href="styles/anunciar.css">
     <script src="js/main.js"></script>
     <title>Cadastro Anuncio</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>

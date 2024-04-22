@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
     <link rel="stylesheet" href="styles/meus_anuncios.css">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <title>Web Motors</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>

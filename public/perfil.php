@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['salvar_alteracoes'])) 
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <script src="js/main.js"></script>
     <title>Web Motors</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>
