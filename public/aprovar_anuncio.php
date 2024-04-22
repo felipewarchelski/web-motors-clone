@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['aprovar'])) {
                 </div>
             </div>
             <div class="nav-content">
-                <a href="#">
+                <a href="index.php">
                     <svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.399 10.057A5.064 5.064 0 0110.457 5a5.064 5.064 0 015.057 5.057 5.063 5.063 0 01-5.057 5.057 5.063 5.063 0 01-5.058-5.057zm15.207 8.736l-4.51-4.51a7.013 7.013 0 001.418-4.226C17.514 6.166 14.348 3 10.457 3a7.066 7.066 0 00-7.058 7.057c0 3.891 3.166 7.057 7.058 7.057a7.013 7.013 0 004.225-1.418l4.51 4.51a.993.993 0 00.707.294.999.999 0 00.707-1.707z" fill="#2E2D37"></path>
                     </svg>Buscar veículo</a>

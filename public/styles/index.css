@@ -88,7 +88,6 @@ body {
     flex-direction: column;
     position: fixed;
     width: 20%;
-    height: 100vh;
     left: 0px;
 }
 
@@ -116,6 +115,103 @@ body {
 
 .nav-content {
     width: 100%;
+    padding: 24px;
+}
+
+#espacamentoFiltros {
+    margin-top: 20px;
+}
+
+.nav-content h2 {
+    font-size: 12px;
+    color: #8f8f92;
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.nav-content select {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cbcbcb;
+    padding: 0px 0px 5px 4px;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    color: #4a4a4c;
+}
+
+.blindado-content {
+    display: flex;
+    align-items: center;
+}
+
+.blindado-content input {
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    cursor: pointer;
+    border: 2px solid #dfe0e7;
+    padding: 0px;
+    margin: 4px 7px 0px 0px;
+    border-radius: 4px;
+}
+
+.blindado-content input:checked {
+    background: #f3123c;
+    border: 2px solid #f3123c;
+}
+
+.blindado-content input:focus {
+    outline: none;
+    border: none;
+}
+
+.blindado-content input[type="checkbox"]:not(:checked) {
+    border: 2px solid #dfe0e7;
+}
+
+.blindado-s,
+.blindado-n {
+    display: flex;
+    align-items: center;
+}
+
+.blindado-s p,
+.blindado-n p {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.blindado-n {
+    margin-left: 8rem;
+}
+
+.search-button-nav {
+    position: fixed;
+    display: flex;
+    bottom: 0px;
+    justify-content: center;
+    width: 21%;
+    padding: 24px;
+}
+
+.search-button-nav input {
+    display: flex;
+    width: 100%;
+    padding: 14px 16px;
+    margin: 16px 0px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 8px;
+    background: rgb(46, 45, 55);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    border: none;
 }
 
 .main-content {

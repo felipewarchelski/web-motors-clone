@@ -72,84 +72,9 @@ if (isset($_REQUEST['search_button'])) {
                 <a href="" class="carros-title">Carros</a>
                 <a href="" class="motos-title">Motos</a>
             </div>
-            <form action="">
-                <div class="nav-content">
-                    <div class="marca">
-                        <h2>Marca</h6>
-                            <select name="marca">
-                                <option value="" disabled selected>Escolha uma marca</option>
-                                <option value="Fiat">Fiat</option>
-                                <option value="Chevrolet">Chevrolet</option>
-                                <option value="Volkswagen">Volkswagen</option>
-                                <option value="Ford">Ford</option>
-                                <option value="Honda">Honda</option>
-                                <option value="Toyota">Toyota</option>
-                                <option value="Nissan">Nissan</option>
-                                <option value="Volvo">Volvo</option>
-                            </select>
-                    </div>
-                    <div class="modelo" id="espacamentoFiltros">
-                        <h2>Modelo</h6>
-                            <select name="modelo">
-                                <option value="" disabled selected>Escolha um modelo</option>
-                                <option value="Uno">Uno</option>
-                                <option value="Onix">Onix</option>
-                                <option value="Silverado Edição LE">Silverado Edição LE</option>
-                                <option value="Fusion">Fusion</option>
-                                <option value="Civic">Civic</option>
-                                <option value="Corolla XRS">Corolla XRS</option>
-                                <option value="Frontier">Frontier</option>
-                                <option value="x60">x60</option>
-                            </select>
-                    </div>
-                    <div class="ano_lancamento" id="espacamentoFiltros">
-                        <h2>Ano de lançamento</h6>
-                            <select name="ano_lancamento">
-                                <option value="" disabled selected>Escolha um ano</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                            </select>
-                    </div>
-                    <div class="ano_fabricacao" id="espacamentoFiltros">
-                        <h2>Ano de Fabricação</h2>
-                        <select name="ano_fabricacao" id="fabricacaoSelect">
-                            <option value="" disabled selected>Escolha um ano</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                        </select>
-                    </div>
-                    <div class="cor" id="espacamentoFiltros">
-                        <h2>Cor</h2>
-                        <select name="cor">
-                            <option value="" disabled selected>Escolha uma cor</option>
-                            <option value="Verde">Verde</option>
-                            <option value="Azul">Azul</option>
-                            <option value="Vermelho">Vermelho</option>
-                            <option value="Preto">Preto</option>
-                            <option value="Cinza Escuro">Cinza Escuro</option>
-                            <option value="Prata">Prata</option>
-                        </select>
-                    </div>
-                    <div class="blindado" id="espacamentoFiltros">
-                        <h2>Blindagem</h2>
-                        <div class="blindado-content">
-                            <div class="blindado-s">
-                                <input type="checkbox" name="blindado" id="blindadoCheckbox">
-                                <p>Sim</p>
-                            </div>
-                            <div class="blindado-n">
-                                <input type="checkbox" name="blindado" id="blindadoCheckbox">
-                                <p>Não</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="search-button-nav">
-                    <input type="submit" value="Buscar" name="buscar">
-                </div>
-            </form>
+            <div class="nav-content">
+                <!-- COLOCAR AS DEPENDENCIAS DO BD EM DIVS E FORMS -->
+            </div>
         </div>
         <div class="main-content">
             <div class="div-header-content">
@@ -201,8 +126,8 @@ if (isset($_REQUEST['search_button'])) {
 
                     if (is_array($tableData) && !empty($tableData)) {
                         foreach ($tableData as $dados) {
-                            if ($dados['anuncio_liberado'] == "S") {
-                                echo '<div class="card" style="width: 14.8rem;">
+                            if ($dados['anuncio_liberado'] == "S" ){
+                            echo '<div class="card" style="width: 14.8rem;">
                                     <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
