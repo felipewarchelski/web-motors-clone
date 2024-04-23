@@ -14,7 +14,7 @@ $veiculos = [
         'preco' => "150.000", 
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('mustang') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Chevrolet',
@@ -30,7 +30,7 @@ $veiculos = [
         'preco' => "250.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('camaro') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Tesla',
@@ -46,7 +46,7 @@ $veiculos = [
         'preco' => "500.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('model s') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Chevrolet',
@@ -62,7 +62,7 @@ $veiculos = [
         'preco' => "180.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('corvette') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'BMW',
@@ -78,7 +78,7 @@ $veiculos = [
         'preco' => "280.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('x5') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Land Rover',
@@ -94,7 +94,7 @@ $veiculos = [
         'preco' => "300.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('range rover') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Ferrari',
@@ -110,7 +110,7 @@ $veiculos = [
         'preco' => "380.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('488') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Lamborghini',
@@ -126,7 +126,7 @@ $veiculos = [
         'preco' => "450.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('huracan') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Porsche',
@@ -142,7 +142,7 @@ $veiculos = [
         'preco' => "360.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('911 carrera') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Chevrolet',
@@ -158,7 +158,7 @@ $veiculos = [
         'preco' => "60.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('onix') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Hyundai',
@@ -174,7 +174,7 @@ $veiculos = [
         'preco' => "70.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('hb20') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Fiat',
@@ -190,7 +190,7 @@ $veiculos = [
         'preco' => "65.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('argo') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Volkswagen',
@@ -206,7 +206,7 @@ $veiculos = [
         'preco' => "80.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('polo') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Toyota',
@@ -222,7 +222,7 @@ $veiculos = [
         'preco' => "95.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('corolla') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Honda',
@@ -238,7 +238,7 @@ $veiculos = [
         'preco' => "92.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/' . strtolower('civic') . '.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Ford',
@@ -254,7 +254,7 @@ $veiculos = [
         'preco' => "52.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/ka.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Honda',
@@ -270,7 +270,7 @@ $veiculos = [
         'preco' => "62.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/fit.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Renault',
@@ -286,7 +286,7 @@ $veiculos = [
         'preco' => "55.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/sandero.jpg',
-        'id_usuario' => 8
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Fiat',
@@ -302,7 +302,7 @@ $veiculos = [
         'preco' => "15.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/uno.jpg',
-        'id_usuario' => 9,
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Volkswagen',
@@ -318,7 +318,7 @@ $veiculos = [
         'preco' => "10.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/fusca.jpg',
-        'id_usuario' => 9,
+        'id_usuario' => 2
     ],
     [
         'marca' => 'Chevrolet',
@@ -334,7 +334,7 @@ $veiculos = [
         'preco' => "35.000",
         'anuncio_liberado' => 'N',
         'imagem_anuncio' => '../imgs/anuncio/opala.jpg',
-        'id_usuario' => 9,
+        'id_usuario' => 2
     ],
 ];
 

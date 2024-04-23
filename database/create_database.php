@@ -34,8 +34,8 @@ if(isset($_POST['submit'])) {
         cep VARCHAR(9),
         cidade VARCHAR(20),
         uf VARCHAR(2),
-        nivel VARCHAR(3),
-    )";
+        nivel VARCHAR(3)
+    );";
 
     if ($conn->query($sql) === TRUE) {
         echo "Tabela usuario criada com sucesso<br>";
@@ -59,7 +59,7 @@ if(isset($_POST['submit'])) {
         anuncio_liberado VARCHAR(1),
         imagem_anuncio VARCHAR(100),
         id_usuario INT(9),
-        FOREING KEY (id_usuario) REFERENCES usuario(id)
+        FOREIGN KEY (id_usuario) REFERENCES usuario(id)
     )";
 
     if ($conn->query($sql) === TRUE) {

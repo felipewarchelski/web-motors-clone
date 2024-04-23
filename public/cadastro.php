@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
         echo "<script>alert('Este email já existe, tente outro!');</script>";
     } else {
         $query = "INSERT INTO usuario (cpf, nome_completo, email, senha, genero, data_nascimento, telefone, cep, cidade, uf,
-        nivel) VALUES (null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, 'ADM');";
+        nivel) VALUES (null, '$nome_completo', '$email', '$password', null, null, null, null, null, null, 'USR');";
         $result = mysqli_query($con, $query);
     }
     echo '<script>alert("Conta criada com sucesso! Por favor, faça o login!");window.location.href ="login.php";</script>';
