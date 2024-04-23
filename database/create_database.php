@@ -35,7 +35,6 @@ if(isset($_POST['submit'])) {
         cidade VARCHAR(20),
         uf VARCHAR(2),
         nivel VARCHAR(3),
-        imagem_perfil VARCHAR(100)
     )";
 
     if ($conn->query($sql) === TRUE) {
@@ -97,6 +96,7 @@ if(isset($_POST['submit'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Criar Banco de Dados</title>
+<link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 <style>
 body {
     font-family: Arial, sans-serif;

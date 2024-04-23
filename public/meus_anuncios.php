@@ -19,7 +19,10 @@ if (is_array($tableData) && !empty($tableData)) {
     }
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
+    $endereco_imagem = $dados['imagem_anuncio'];
+    unlink($endereco_imagem);
     $id_veiculo = $_POST['id_veiculo'];
 
     $query = "DELETE FROM anuncio WHERE id = '$id_veiculo'";
@@ -42,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
     <link rel="stylesheet" href="styles/meus_anuncios.css">
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <title>Web Motors</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>

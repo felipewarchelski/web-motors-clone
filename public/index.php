@@ -1,18 +1,34 @@
 <?php
 include '../app/Session/UserWebMotors.php';
+include '../app/includes/gera_anuncio.php';
 
 use \App\Session\UserWebMotors as SessionUserWebMotors;
 
-if (isset($_REQUEST['search_button'])) {
-    if ($_REQUEST['searchbar'] != '') {
-        $searchbar = $_REQUEST['searchbar'];
+$valor_pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
 
-        include '../app/includes/pesquisar_veiculos.php';
-    } else {
-        header("Location: {$_SERVER['PHP_SELF']}");
-        exit();
+$valor_pesquisa_formatado = ucwords(strtolower($valor_pesquisa));
+
+$params = array(
+    'pesquisa' => $valor_pesquisa,
+);
+$query_string = http_build_query($params);
+$url = 'index.php?' . $query_string;
+
+if ($url != 'index.php?pesquisa=') {
+    include '../app/includes/pesquisar_veiculos.php';
+}
+$data = $tableData;
+
+$rows = 0;
+foreach ($data as $datas){
+    if($datas['anuncio_liberado'] == "S"){
+        $rows ++;
     }
 }
+
+$num_rows = count($tableData);
+
+$repetir = range(1, $num_rows);
 
 ?>
 <!DOCTYPE html>
@@ -174,30 +190,17 @@ if (isset($_REQUEST['search_button'])) {
                 <h3>Home > <n>Carros</n>
                 </h3>
                 <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
-                <h6>352.377 carros encontrados</h6>
+                <?php
+                if($rows > 0){
+                    echo '<h6>' . $rows  . ' veiculos encontrados</h6>';
+                } else{
+                    echo '<h6>Nenhum veiculo encontrado</h6>';
+                }
+                ?>
                 <div class="main-cards">
                     <!-- INÍCIO DO PHP PARA IMPRIMIR O ANÚNCIO NA TELA -->
 
                     <?php
-                    include '../app/includes/gera_anuncio.php';
-
-                    $valor_pesquisa = isset($_GET['pesquisa']) ? $_GET['pesquisa'] : '';
-
-                    $valor_pesquisa_formatado = ucwords(strtolower($valor_pesquisa));
-
-                    $params = array(
-                        'pesquisa' => $valor_pesquisa,
-                    );
-                    $query_string = http_build_query($params);
-                    $url = 'index.php?' . $query_string;
-
-                    if ($url != 'index.php?pesquisa=') {
-                        include '../app/includes/pesquisar_veiculos.php';
-                    }
-
-                    $num_rows = count($tableData);
-
-                    $repetir = range(1, $num_rows);
 
                     if (is_array($tableData) && !empty($tableData)) {
                         foreach ($tableData as $dados) {

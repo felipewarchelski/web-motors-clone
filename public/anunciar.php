@@ -60,7 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/anunciar.css">
+    <script src="js/main.js"></script>
     <title>Cadastro Anuncio</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
 </head>
 
 <body>
@@ -155,13 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['anunciar'])) {
                     <textarea id="descricao" name="descricao_completa" maxlength="500" placeholder="Nos conte com detalhes sobre seu veículo" required></textarea>
                     <label for="preco" id="" >Preço</label>
                     <input type="text" name="preco" id="preco" maxlength="11" oninput="formatarPreco(this)" placeholder="Digite o preço do seu veículo" required>
-                    <script>
-                        function formatarPreco(input) {
-                            let valor = input.value.replace(/\D/g, '');
-                            valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                            input.value = valor;
-                         }
-                    </script>
+                    <script>formatarPreco();</script>
                     <div class="form-group">
                         <label for="imagens ">Imagens*</label>
                         <input type="file" class="form-control-file" id="imagens" name="imagens" accept="image/*" required>
