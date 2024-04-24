@@ -152,11 +152,11 @@ $repetir = range(1, $num_rows);
                         <h2>Blindagem</h2>
                         <div class="blindado-content">
                             <div class="blindado-s">
-                                <input type="checkbox" name="blindado" id="blindadoCheckbox">
+                                <input type="radio" name="blindado" id="blindadoCheckbox" value="S">
                                 <p>Sim</p>
                             </div>
                             <div class="blindado-n">
-                                <input type="checkbox" name="blindado" id="blindadoCheckbox">
+                                <input type="radio" name="blindado" id="blindadoCheckbox" value="N">
                                 <p>Não</p>
                             </div>
                         </div>
