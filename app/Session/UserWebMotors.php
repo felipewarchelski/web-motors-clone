@@ -63,7 +63,8 @@ class UserWebMotors{
         self::init();
 
         unset($_SESSION['login']);
-        // echo '<script>alert("Você saiu da sua conta!");window.location.href ="../../public/index.php";</script>';
+        // echo '<script>alert("Você saiu da sua conta!");</script>';
+        echo '<script>window.location.href ="../../public/index.php";</script>';
     }
     
 }

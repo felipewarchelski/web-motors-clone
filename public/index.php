@@ -17,12 +17,24 @@ $url = 'index.php?' . $query_string;
 if ($url != 'index.php?pesquisa=') {
     include '../app/includes/pesquisar_veiculos.php';
 }
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['buscar'])) {
+
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $ano_lancamento = $_POST['ano_lancamento'];
+    $ano_fabricacao = $_POST['ano_fabricacao'];
+    $cor = $_POST['cor'];
+    $blindado = $_POST['blindado'];
+
+
+    include '../app/includes/filtrar_veiculos.php';
+}
 $data = $tableData;
 
 $rows = 0;
-foreach ($data as $datas){
-    if($datas['anuncio_liberado'] == "S"){
-        $rows ++;
+foreach ($data as $datas) {
+    if ($datas['anuncio_liberado'] == "S") {
+        $rows++;
     }
 }
 
@@ -88,12 +100,12 @@ $repetir = range(1, $num_rows);
                 <a href="" class="carros-title">Carros</a>
                 <a href="" class="motos-title">Motos</a>
             </div>
-            <form action="">
+            <form action="" method="post">
                 <div class="nav-content">
                     <div class="marca">
                         <h2>Marca</h6>
                             <select name="marca">
-                                <option value="" disabled selected>Escolha uma marca</option>
+                                <option value="" selected>Escolha uma marca</option>
                                 <option value="Fiat">Fiat</option>
                                 <option value="Chevrolet">Chevrolet</option>
                                 <option value="Volkswagen">Volkswagen</option>
@@ -107,7 +119,7 @@ $repetir = range(1, $num_rows);
                     <div class="modelo" id="espacamentoFiltros">
                         <h2>Modelo</h6>
                             <select name="modelo">
-                                <option value="" disabled selected>Escolha um modelo</option>
+                                <option value="" selected>Escolha um modelo</option>
                                 <option value="Uno">Uno</option>
                                 <option value="Onix">Onix</option>
                                 <option value="Silverado Edição LE">Silverado Edição LE</option>
@@ -121,7 +133,7 @@ $repetir = range(1, $num_rows);
                     <div class="ano_lancamento" id="espacamentoFiltros">
                         <h2>Ano de lançamento</h6>
                             <select name="ano_lancamento">
-                                <option value="" disabled selected>Escolha um ano</option>
+                                <option value="" selected>Escolha um ano</option>
                                 <option value="2020">2020</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
@@ -130,7 +142,7 @@ $repetir = range(1, $num_rows);
                     <div class="ano_fabricacao" id="espacamentoFiltros">
                         <h2>Ano de Fabricação</h2>
                         <select name="ano_fabricacao" id="fabricacaoSelect">
-                            <option value="" disabled selected>Escolha um ano</option>
+                            <option value="" selected>Escolha um ano</option>
                             <option value="2020">2020</option>
                             <option value="2021">2021</option>
                             <option value="2022">2022</option>
@@ -139,7 +151,7 @@ $repetir = range(1, $num_rows);
                     <div class="cor" id="espacamentoFiltros">
                         <h2>Cor</h2>
                         <select name="cor">
-                            <option value="" disabled selected>Escolha uma cor</option>
+                            <option value="" selected>Escolha uma cor</option>
                             <option value="Verde">Verde</option>
                             <option value="Azul">Azul</option>
                             <option value="Vermelho">Vermelho</option>
@@ -156,7 +168,7 @@ $repetir = range(1, $num_rows);
                                 <p>Sim</p>
                             </div>
                             <div class="blindado-n">
-                                <input type="radio" name="blindado" id="blindadoCheckbox" value="N">
+                                <input type="radio" name="blindado" id="blindadoCheckbox" value="N" checked>
                                 <p>Não</p>
                             </div>
                         </div>
@@ -191,9 +203,9 @@ $repetir = range(1, $num_rows);
                 </h3>
                 <h4>Carros usados e seminovos em todo o Brasil | Webmotors</h4>
                 <?php
-                if($rows > 0){
+                if ($rows > 0) {
                     echo '<h6>' . $rows  . ' veiculos encontrados</h6>';
-                } else{
+                } else {
                     echo '<h6>Nenhum veiculo encontrado</h6>';
                 }
                 ?>
