@@ -1,0 +1,12 @@
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['buscar'])) {
+
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $ano_lancamento = $_POST['ano_lancamento'];
+    $ano_fabricacao = $_POST['ano_fabricacao'];
+    $cor = $_POST['cor'];
+    $blindado = $_POST['blindado'];
+
+
+    include '../app/includes/filtrar_veiculos.php';
+}
