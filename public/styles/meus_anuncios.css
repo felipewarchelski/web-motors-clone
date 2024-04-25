@@ -160,10 +160,8 @@ img {
 /* MAIN CONTENT */
 
 .main-content {
-    background-color: #f3f5f8;
     width: calc(85% - 0px);
     margin-left: 15%;
-    padding: 24px 32px;
 }
 
 .main-content h1 {
@@ -172,6 +170,11 @@ img {
     margin-bottom: 20px;
     color: rgb(77, 76, 89);
     font-size: 20px;
+}
+
+.content {
+    background-color: #f3f5f8;
+    padding: 24px 32px;
 }
 
 .main-cards {

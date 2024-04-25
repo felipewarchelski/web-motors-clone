@@ -151,18 +151,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
         <div class="main-content">
             <div class="content">
                 <h1>Meus Anúncios</h1>
-            </div>
-            <form action="" method="post">
-                <div class="main-cards">
-                    <?php
-                    $num_rows = count($tableData);
-                    $repetir = range(1, $num_rows);
+                <form action="" method="post" class="div-formulario">
+                    <div class="main-cards">
+                        <?php
+                        $num_rows = count($tableData);
+                        $repetir = range(1, $num_rows);
 
-                    if (is_array($tableData) && !empty($tableData)) {
-                        foreach ($tableData as $dados) {
-                            if ($dados['anuncio_liberado'] == "S" && $dados['id_usuario'] == $info['id']) {
-                                $id_veiculo = $dados['id'];
-                                echo '<div class="card" style="width: 14.8rem;">
+                        if (is_array($tableData) && !empty($tableData)) {
+                            foreach ($tableData as $dados) {
+                                if ($dados['anuncio_liberado'] == "S" && $dados['id_usuario'] == $info['id']) {
+                                    $id_veiculo = $dados['id'];
+                                    echo '<div class="card" style="width: 14.8rem;">
                                         <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
                                         <div class="card-body">
                                             <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
@@ -178,12 +177,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
                                             </div>
                                         </div>
                                     </div>';
+                                }
                             }
                         }
-                    }
-                    ?>
-                </div>
-            </form>
+                        ?>
+                    </div>
+                </form>
+            </div>
         </div>
 
 

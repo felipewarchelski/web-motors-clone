@@ -259,6 +259,7 @@ p {
     justify-content: center;
     align-items: center;
     top: -45px;
+    margin-bottom: 100px;
 }
 
 .contact-us h2 {
@@ -278,14 +279,16 @@ p {
 /* COMEÇO FOOTER */
 
 .footer-login {
-    background: rgb(46, 45, 55);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2e2d37;
     padding: 24px 32px;
     display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
-    width: 100%;
-    bottom: 0px;
+    text-align: center;
 }
 
 .header-footer {
