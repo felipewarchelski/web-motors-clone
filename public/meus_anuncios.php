@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
                                             <h2>R$' . $dados['preco'] . '</h2>
                                             <h3>' . $dados['ano_fabricacao'] . '/' . $dados['ano_lancamento'] . '</h3>
                                             <div class="card-buttons">
-                                            <a href="index.php">Ver anúncio</a>
+                                            <a href="index.php" class="botao-enabled">Ver anúncio</a>
                                             <form action="" method="post" class="card-buttons">
                                             <input type="hidden" name="id_veiculo" value="' . $id_veiculo . '">
                                             <input type="submit" value="Excluir" name="excluir" class="excluir" onclick="confirmarExclusao(event)">
@@ -182,7 +182,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
                         }
                         ?>
                     </div>
-                    <h1>Em Análise</h1>
+                    <h1 id="margin50">Em Análise...</h1>
+                    <form action="" method="post">
+                        <div class="main-cards">
+                            <?php
+                            $num_rows = count($tableData);
+                            $repetir = range(1, $num_rows);
+
+                            if (is_array($tableData) && !empty($tableData)) {
+                                foreach ($tableData as $dados) {
+                                    if ($dados['anuncio_liberado'] == "N" && $dados['id_usuario'] == $info['id']) {
+                                        $id_veiculo = $dados['id'];
+                                        echo '<div class="card" style="width: 14.8rem;">
+                                        <img src="' . $dados['imagem_anuncio'] . '" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">' . $dados['marca'] . ' / ' . $dados['modelo'] . '</h5>
+                                            <p class="card-text" style="overflow: hidden; text-overflow: ellipsis;">' . $dados['descricao_inicial'] . '</p>
+                                            <h2>R$' . $dados['preco'] . '</h2>
+                                            <h3>' . $dados['ano_fabricacao'] . '/' . $dados['ano_lancamento'] . '</h3>
+                                            <div class="card-buttons">
+                                            <a href="" class="botao-disabled">Ver anúncio</a>
+                                            <form action="" method="post" class="card-buttons">
+                                            <input type="hidden" name="id_veiculo" value="' . $id_veiculo . '">
+                                            <input type="submit" value="Excluir" name="excluir" class="excluir" onclick="confirmarExclusao(event)">
+                                            </form>
+                                            </div>
+                                        </div>
+                                        <div class="analise"></div>
+                                    </div>';
+                                    }
+                                }
+                            }
+                            ?>
+                        </div>
+                    </form>
                 </form>
             </div>
         </div>
