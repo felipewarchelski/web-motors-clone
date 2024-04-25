@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
         <div class="main-content">
             <div class="content">
                 <h1>Meus Anúncios</h1>
-                <form action="" method="post" class="div-formulario">
+                <form action="" method="post">
                     <div class="main-cards">
                         <?php
                         $num_rows = count($tableData);
@@ -182,6 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir'])) {
                         }
                         ?>
                     </div>
+                    <h1>Em Análise</h1>
                 </form>
             </div>
         </div>
