@@ -160,10 +160,8 @@ img {
 /* MAIN CONTENT */
 
 .main-content {
-    background-color: #f3f5f8;
     width: calc(85% - 0px);
     margin-left: 15%;
-    padding: 24px 32px;
 }
 
 .main-content h1 {
@@ -172,6 +170,12 @@ img {
     margin-bottom: 20px;
     color: rgb(77, 76, 89);
     font-size: 20px;
+}
+
+.content {
+    background-color: #f3f5f8;
+    padding: 24px 32px;
+    box-shadow: inset 5px 5px 13px -8px rgba(0, 0, 0, 0.14);
 }
 
 .main-cards {
@@ -226,8 +230,16 @@ img {
     text-decoration: none;
     color: white;
     font-size: 15px;
-    background-color: #2E2D37;
     font-weight: 500;
+}
+
+.botao-enabled {
+    background-color: #2E2D37;
+}
+
+.botao-disabled {
+    background-color: #b5b5b5;
+    cursor: default;
 }
 
 .excluir {
@@ -240,3 +252,32 @@ img {
     background-color: #f3123c;
     font-weight: 500;
 }
+
+.analise {
+    height: 7px;
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #f3123be4;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1px;
+}
+
+#margin50 {
+    margin-top:50px;
+}
+
+/* COMEÇO WEBKIT */
+
+/* Scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b5b5b5;
+    border-radius: 20px;
+}
+
+/* FIM WEBKIT */
